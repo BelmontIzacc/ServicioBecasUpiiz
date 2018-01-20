@@ -14,7 +14,7 @@ class CurrentMigration extends Migration
     {
         Schema::create('becaActual', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
+            $table->string('nombreBecaA');
             $table->text('cual',50);
             $table->timestamps();
         });

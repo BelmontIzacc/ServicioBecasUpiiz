@@ -8,7 +8,7 @@ class history extends Model
 {
     protected $table = "historia";
 
-    protected $fillable = ['nombre','adeudos'];
+    protected $fillable = ['estadoAcademico','adeudos'];
 
     public $timestamps = false;
 

@@ -14,7 +14,7 @@ class PlaceMigration extends Migration
     {
         Schema::create('casa', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
+            $table->string('tipoCasa');
             $table->timestamps();
         });
     }

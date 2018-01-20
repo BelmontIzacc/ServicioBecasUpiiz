@@ -14,7 +14,7 @@ class DependenceMigration extends Migration
     {
         Schema::create('dependencia', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
+            $table->string('opcion');
             $table->timestamps();
         });
     }

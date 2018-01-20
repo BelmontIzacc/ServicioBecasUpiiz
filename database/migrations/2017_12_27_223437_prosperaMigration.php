@@ -14,7 +14,7 @@ class ProsperaMigration extends Migration
     {
         Schema::create('prospera', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
+            $table->string('opcion');
             $table->text('cual',50);
             $table->timestamps();
         });

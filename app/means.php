@@ -8,7 +8,7 @@ class means extends Model
 {
     protected $table = "medios";
 
-    protected $fillable = ['nombre','cuantos'];
+    protected $fillable = ['tipoTransp','cuantos'];
 
     public $timestamps = false;
 

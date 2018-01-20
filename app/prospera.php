@@ -8,7 +8,7 @@ class prospera extends Model
 {
     protected $table = "prospera";
 
-    protected $fillable = ['nombre','cual'];
+    protected $fillable = ['opcion','cual'];
 
     public $timestamps = false;
 

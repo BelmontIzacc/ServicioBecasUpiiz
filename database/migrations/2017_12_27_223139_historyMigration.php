@@ -14,7 +14,7 @@ class HistoryMigration extends Migration
     {
         Schema::create('historia', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
+            $table->string('estadoAcademico');
             $table->text('adeudos',100);
             $table->timestamps();
         });

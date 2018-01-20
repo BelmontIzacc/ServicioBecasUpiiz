@@ -8,7 +8,7 @@ class dependence extends Model
 {
     protected $table = "dependencia";
 
-    protected $fillable = ['nombre'];
+    protected $fillable = ['opcion'];
 
     public $timestamps = false;
 

@@ -14,7 +14,7 @@ class HomeMigration extends Migration
     {
         Schema::create('residencia', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
+            $table->string('tipoResidencia');
             $table->double('pagoMensual',10);
             $table->timestamps();
         });

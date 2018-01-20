@@ -8,7 +8,7 @@ class diseases extends Model
 {
     protected $table = "enfermedades";
 
-    protected $fillable = ['nombre','cual'];
+    protected $fillable = ['opcion','cual'];
 
     public $timestamps = false;
 

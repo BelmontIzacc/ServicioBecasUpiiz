@@ -8,7 +8,7 @@ class home extends Model
 {
     protected $table = "residencia";
 
-    protected $fillable = ['nombre','pagoMensual'];
+    protected $fillable = ['tipoResidencia','pagoMensual'];
 
     public $timestamps = false;
 

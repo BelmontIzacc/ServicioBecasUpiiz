@@ -14,7 +14,7 @@ class MeansMigration extends Migration
     {
         Schema::create('medios', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
+            $table->string('tipoTransp');
             $table->integer('cuantos');
             $table->timestamps();
         });

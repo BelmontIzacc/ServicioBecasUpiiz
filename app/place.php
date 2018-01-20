@@ -8,7 +8,7 @@ class place extends Model
 {
     protected $table = "casa";
 
-    protected $fillable = ['nombre'];
+    protected $fillable = ['tipoCasa'];
 
     public $timestamps = false;
 

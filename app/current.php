@@ -8,7 +8,7 @@ class current extends Model
 {
     protected $table = "becaActual";
 
-    protected $fillable = ['nombre','cual'];
+    protected $fillable = ['nombreBecaA','cual'];
 
     public $timestamps = false;
 
