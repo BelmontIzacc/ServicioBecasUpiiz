@@ -11,6 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//Route::get('/', 'welcomeController@index');
+//Route::post('/datos', 'welcomeController@store');
+Route::get('/', function(){
+	return view('layout');
+});
+
+Route::get('/in', function(){
+	return view('welcome');
+});
+
+Route::get('/admin', function(){
+	return view('admin\layoutAdmin');
 });
