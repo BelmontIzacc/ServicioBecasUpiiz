@@ -11,24 +11,30 @@ class carrerTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('programaAcademico')->insert([
+        //
+        DB::table('carrera')->insert([
             'nombre' => 'Ingeniería en Sistemas Computacionales',
+            'color' => '#DDFFC4',
         ]);
         
-        DB::table('programaAcademico')->insert([
+        DB::table('carrera')->insert([
             'nombre' => 'Ingeniería en Mecatrónica',
+            'color' => '#CDEEFF',
         ]);
         
-        DB::table('programaAcademico')->insert([
+        DB::table('carrera')->insert([
             'nombre' => 'Ingeniería en Alimentos',
+            'color' => '#FFE1C4',
         ]);
         
-        DB::table('programaAcademico')->insert([
+        DB::table('carrera')->insert([
             'nombre' => 'Ingeniería en Metalúrgica',
+            'color' => '#FFC4FF',
         ]);
         
-        DB::table('programaAcademico')->insert([
+        DB::table('carrera')->insert([
             'nombre' => 'Ingeniería en Ambiental',
+            'color' => '#FEFFC4',
         ]);
     }
 }

@@ -11,16 +11,11 @@
 |
 */
 
-//Route::get('/', 'welcomeController@index');
-//Route::post('/datos', 'welcomeController@store');
-Route::get('/', function(){
-	return view('layout');
-});
+Route::get('/', 'welcomeController@index');
 
-Route::get('/in', function(){
-	return view('welcome');
-});
-
-Route::get('/admin', function(){
-	return view('admin\layoutAdmin');
-});
+//-----------------------------------------------------------------------------------//
+Route::get('/login', 'Auth\AuthController@getLogin');
+Route::post('/login', 'Auth\AuthController@postLogin');
+//----------------------------------------------------------------------------------//
+Route::get('/admin', 'adminController@index');
+Route::get('/logout','Auth\AuthController@getLogout');

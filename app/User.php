@@ -3,6 +3,9 @@
 namespace App;
 
 use Illuminate\Auth\Authenticatable;
+
+use Sofa\Eloquence\Eloquence;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Foundation\Auth\Access\Authorizable;
@@ -15,6 +18,7 @@ class user extends Model implements AuthenticatableContract,
                                     CanResetPasswordContract
 {
     use Authenticatable, Authorizable, CanResetPassword;
+    use Eloquence;
     /**
      * The database table used by the model.
      *
@@ -27,7 +31,19 @@ class user extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['nombre','apellidoPaterno','apellidoMaterno','boleta','promActual','periodoEscolar','edad','semestre','grupo','telCasa','telCel','telTutor'];
+        protected $fillable = [
+        'carrera_id',
+        'nombre',
+        'apellidoPaterno',
+        'apellidoMaterno',
+        'boleta',
+        'tipo',
+        'password',
+        'edad',
+        'grupo',
+        'semestre',
+        'promActual',
+    ];
     //protected $guarded = ['tipo'];
 
     /**
@@ -37,7 +53,13 @@ class user extends Model implements AuthenticatableContract,
      */
     protected $hidden = ['password'];
 
-    public function student(){
-        return $this->hasOne('App\student');
+    public function __toString(){
+        return $this->nombre.' '.$this->apellidoPaterno.' '.$this->apellidoMaterno;
+    }
+    public function tipo(){
+        return $this->getOriginal('tipo');
+    }
+    public function getOrigenAttribute($value){
+        return config('globalInfo.nombreUpiiz2');
     }
 }

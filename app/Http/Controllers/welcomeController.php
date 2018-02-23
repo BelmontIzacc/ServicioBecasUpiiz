@@ -17,7 +17,8 @@ class welcomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $index=1;
+        return view('welcome', ['index'=>$index]);
     }
 
     /**
@@ -40,6 +41,11 @@ class welcomeController extends Controller
     {
         user::create($request->all());
         return view('layout');
+    }
+    public function stop()
+    {
+        $index = 4;
+        return view('errors.unavailable', ['index'=>$index]);
     }
 
     /**
