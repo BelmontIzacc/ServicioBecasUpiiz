@@ -16,18 +16,18 @@ class UserMigration extends Migration
             $table->increments('id');
 
             $table->String('nombre', 50);
-            $table->string('apellidoPaterno', 50);
-            $table->string('apellidoMaterno', 50);
             $table->string('boleta')->unique();
             $table->integer('tipo')->default(2);
             $table->string('password', 60)->default(1);
             $table->integer('edad');
             $table->string('grupo',5);
             $table->string('semestre');
-            $table->string('promActual');
-
+            $table->string('apellidoPaterno', 50);
+            $table->string('apellidoMaterno', 50);
+            
             $table->integer('carrera_id')->unsigned()->index()->nullable();
             $table->foreign('carrera_id')->references('id')->on('carrera')->onDelete('set null');
+            
             $table->timestamps();
             $table->rememberToken();
             

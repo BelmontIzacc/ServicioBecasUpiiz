@@ -13,11 +13,8 @@ class municipality extends Model
     
     public $timestamps = false;
     
-    public function students(){
-        return $this->hasMany(student::class, 'municipio_id');
+    public function tenement(){
+        return $this->hasMany(tenement::class, 'municipio_id');
     }
     
-    public function clinics(){
-        return $this->hasMany(clinic::class, 'municipio_id');
-    }
 }

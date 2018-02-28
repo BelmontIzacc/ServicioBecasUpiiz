@@ -13,7 +13,7 @@ class state extends Model
     
     public $timestamps = false;
     
-    public function students(){
-        return $this->hasMany(student::class, 'estado_id');
+    public function tenement(){
+        return $this->hasMany(tenement::class, 'estado_id');
     }
 }

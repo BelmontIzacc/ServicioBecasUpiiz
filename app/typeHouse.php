@@ -12,4 +12,8 @@ class typeHouse extends Model
     protected $fillable = [
     	'nombre',
     ];
+
+    public function tenement(){
+        return $this->hasMany(tenement::class, 'tipoCasa_id');
+    }
 }

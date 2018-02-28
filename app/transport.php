@@ -12,4 +12,8 @@ class transport extends Model
     protected $fillable = [
     	'nombre',
     ];
+
+    public function tenement(){
+        return $this->hasMany(tenement::class, 'transporte_id');
+    }
 }

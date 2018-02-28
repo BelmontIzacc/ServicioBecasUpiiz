@@ -16,7 +16,7 @@ class AdminController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+       $this->middleware('auth');
         //$this->middleware('admin');
     }
 
@@ -28,8 +28,56 @@ class AdminController extends Controller
     public function index()
     {
         $index = 5;
+        $tenement = \App\tenement::all();
 
-        return view('Admin.start',['index' => $index]);
+        return view('Admin.start',[
+        'index' => $index,
+       'tenement'=>$tenement,
+        ]);
+    }
+
+    public function configIndex()
+    {
+        $index = -1;
+
+        $user = \App\user::all();
+        $tenement = \App\tenement::all();
+        $carrer = \App\carrer::all();
+        $place = \App\municipality::all();
+        $state = \App\state::all();
+        $beca = \App\studentGrant::all();
+        $transport = \App\transport::all();
+        $typeHouse = \App\typeHouse::all();
+
+        return view('Admin.config', [
+            'index'=>$index,
+            'carrer'=>$carrer,
+            'state'=>$state,
+            'place'=>$place,
+            'user'=>$user,
+            'beca'=>$beca,
+            'transport'=>$transport,
+            'typeHouse'=>$typeHouse,
+            'tenement'=>$tenement,
+        ]);
+    }
+
+    public function checkPassword(Request $request, $variable)
+    {
+        $this->validate($request, [
+            'password' => 'required',
+        ]);
+
+            return redirect('/admin/config')
+            ->withErrors([
+                $request->clave => 'No coinciden las contraseñas',
+            ]);
+        }
+    
+    public function getRegisterWindow($variable){
+        $index = -1;
+
+        return view('Admin.dialogBox', ['index'=>$index, 'variable'=>$variable]);
     }
 
     /**

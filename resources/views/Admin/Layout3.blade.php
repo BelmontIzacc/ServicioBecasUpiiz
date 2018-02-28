@@ -28,6 +28,7 @@
     @yield('css')
 </head>
 
+<body class="horizontal-navigation">
 @yield('popUp')
 
 <div class="modal fade"
@@ -46,7 +47,7 @@
 				                <img src="{{asset('/Template/img/avatar.svg')}}" alt="" style="height:50px;width:auto;" id="modalMessagePhoto" class="round">
 				            </a>
 				        </div>
-		            </div
+		            </div>
 		            <div class="col-lg-11 col-md-11">
 		            	<h4 class="modal-title" id="modalMessageLabel"></h4>
                			 <p class="color-blue-grey-lighter" id="modalMessageUser"> </p>
@@ -64,55 +65,6 @@
     </div>
 </div><!--.modal-->
 
-    @unless($index == 4)
-
-   <header class="site-header">
-	    <div class="container-fluid">
-	        
-	        <button class="hamburger hamburger--htla">
-	            <span>toggle menu</span>
-	        </button>
-	        <div class="site-header-content">
-	            <div class="site-header-content-in">
-
-	  <span class="lbl hidden-md-down" style="font-size:25px;margin: 0 0 10px 0px;">{{config('globalInfo.nombreUpiiz')}}</span>
-      <span class="lbl hidden-lg-up" style="font-size:25px">{{config('globalInfo.nombreUpiiz2')}}</span>
-
-	                <div class="site-header-shown">	                    
-	
-	                    <div class="dropdown user-menu">
-	                        <button class="dropdown-toggle" id="dd-user-menu" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	                            <img src="{{asset('/Template/img/avatar-2-64.png')}}" alt="">
-	                        </button>
-	                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd-user-menu">
-	                            <a class="dropdown-item" href="{{asset('/person/profile/1')}}"><span class="font-icon glyphicon glyphicon-user"></span>Perfil</a>
-	                            <a class="dropdown-item" href="{{asset('/admin/config')}}"><span class="font-icon glyphicon glyphicon-cog"></span>Configuración</a>
-	                            <div class="dropdown-divider"></div>
-	                            <a class="dropdown-item" href="{{asset('/logout')}}"><span class="font-icon glyphicon glyphicon-log-out"></span>Salir</a>
-	                        </div>
-	                    </div>
-	
-	                    <button type="button" class="burger-right">
-	                        <i class="font-icon-menu-addl"></i>
-	                    </button>
-	                </div><!--.site-header-shown-->
-	            </div><!--site-header-content-in-->
-	        </div><!--.site-header-content-->
-	    </div><!--.container-fluid-->
-	</header>
-	        
-
-
-	<div class="page-content">
-		<div class="container-fluid">
-            @include('alerts.sessionAlert')
-            @include('alerts.formError')
-            <h3 class="with-border text-center">@yield('subHead')</h3>
-            @yield('content')
-		</div><!--.container-fluid-->
-	</div><!--.page-content-->
-
-	@endunless
 
 	<script src="{{asset('/Template/js/lib/jquery/jquery.min.js')}}"></script>
 	<script src="{{asset('/Template/js/lib/tether/tether.min.js')}}"></script>
@@ -123,5 +75,15 @@
 
     <script src="{{asset('/Template/js/app.js')}}"></script>
 
-
+	<script>
+		function updateModalMessage(user, date,  title, content, photo){
+			document.getElementById('modalMessageLabel').innerHTML = title;
+			document.getElementById('modalMessageBody').innerHTML = content;
+			document.getElementById('modalMessageDate').innerHTML = date;
+			document.getElementById('modalMessageUser').innerHTML = 'Autor: '+user;
+			document.getElementById('modalMessagePhoto').setAttribute('src', photo);
+			$('#modalMessage').modal('show');
+		}
+	</script>
+</body>
 </html>

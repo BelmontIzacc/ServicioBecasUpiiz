@@ -12,7 +12,7 @@ class carrer extends Model
     
     public $timestamps = false;
     
-    public function students(){
-        return $this->hasMany(student::class, 'carrera_id');
+    public function user(){
+        return $this->hasMany(user::class, 'carrera_id');
     }
 }

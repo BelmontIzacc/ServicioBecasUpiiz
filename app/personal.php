@@ -4,9 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-use Jenssegers\Date\Date;
-use Carbon\Carbon;
-use Sofa\Eloquence\Eloquence;
 class personal extends Model
 {
     //use Eloquence;
@@ -21,4 +18,8 @@ class personal extends Model
     	'nomTutor',
     	'telTutor',
     ];
+
+    public function user(){
+        return $this->belongsTo(user::class, 'usuario_id');
+    }
 }

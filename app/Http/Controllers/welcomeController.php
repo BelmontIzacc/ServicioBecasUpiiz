@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\user;
 use Illuminate\Http\Request;
 
@@ -18,6 +18,7 @@ class welcomeController extends Controller
     public function index()
     {
         $index=1;
+        Auth::logout();
         return view('welcome', ['index'=>$index]);
     }
 

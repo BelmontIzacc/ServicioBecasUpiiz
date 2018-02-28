@@ -18,4 +18,8 @@ class spendingMigration extends Model
     	'trabajo',
     	'dependencia',
     ];
+
+    public function user(){
+        return $this->belongsTo(user::class, 'usuario_id');
+    }
 }

@@ -13,6 +13,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
+
 class user extends Model implements AuthenticatableContract,
                                     AuthorizableContract,
                                     CanResetPasswordContract
@@ -32,17 +33,16 @@ class user extends Model implements AuthenticatableContract,
      * @var array
      */
         protected $fillable = [
-        'carrera_id',
         'nombre',
-        'apellidoPaterno',
-        'apellidoMaterno',
         'boleta',
         'tipo',
         'password',
         'edad',
         'grupo',
-        'semestre',
-        'promActual',
+        'semestre',      
+        'apellidoPaterno',
+        'apellidoMaterno',
+        'carrera_id',
     ];
     //protected $guarded = ['tipo'];
 
@@ -53,13 +53,16 @@ class user extends Model implements AuthenticatableContract,
      */
     protected $hidden = ['password'];
 
+    public function carrer(){
+        return $this->belongsTo(carrer::class, 'carrera_id');
+    }
+    public function getOrigenAttribute($value){
+        return config('globalInfo.nombreUpiiz2');
+    }
     public function __toString(){
         return $this->nombre.' '.$this->apellidoPaterno.' '.$this->apellidoMaterno;
     }
     public function tipo(){
         return $this->getOriginal('tipo');
-    }
-    public function getOrigenAttribute($value){
-        return config('globalInfo.nombreUpiiz2');
     }
 }
