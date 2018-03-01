@@ -17,7 +17,6 @@ class AdminController extends Controller
     public function __construct()
     {
        $this->middleware('auth');
-        //$this->middleware('admin');
     }
 
     /**
@@ -62,22 +61,143 @@ class AdminController extends Controller
         ]);
     }
 
-    public function checkPassword(Request $request, $variable)
-    {
+   public function checkPassword(Request $request, $variable){
         $this->validate($request, [
-            'password' => 'required',
+            'clave' => 'required',
         ]);
-
+            
+        if(Hash::check($request->clave, Auth::user()->password)){
+           return redirect('/admin/config/insert/'.$variable);
+        } else{
             return redirect('/admin/config')
             ->withErrors([
-                $request->clave => 'No coinciden las contraseñas',
+                $request->clave => 'No coinciden las contraseñas D:',
             ]);
         }
+    }
     
     public function getRegisterWindow($variable){
         $index = -1;
 
         return view('Admin.dialogBox', ['index'=>$index, 'variable'=>$variable]);
+    }
+
+    public function insertRegister(Request $request, $variable){
+        //return redirect('/blocked');
+
+        if($variable == 1){
+            $this->validate($request, [
+                'nombre' => 'required|min:5|max:255',
+                'color' => 'required',
+            ]);
+        }else{
+            $this->validate($request, [
+                'nombre' => 'required|min:5|max:255',
+            ]);
+        }
+
+
+        if($variable == 1){
+           \App\carrer::create([
+                'nombre' => $request->nombre,
+                'color' => $request->color,
+            ]);
+        } elseif($variable == 2){
+            \App\state::create([
+                'nombre' => $request->nombre,
+            ]);
+        } elseif($variable == 3){
+            \App\municipality::create([
+                'nombre' => $request->nombre,
+            ]);
+        } elseif($variable == 4){
+            \App\studentGrant::create([
+                'nombre' => $request->nombre,
+            ]);
+        } elseif($variable == 5){
+            \App\transport::create([
+                'nombre' => $request->nombre,
+            ]);
+        } elseif($variable == 6){
+            \App\typeHouse::create([
+                'nombre' => $request->nombre,
+            ]);
+        }
+
+        return redirect('/admin/config/insert/'. $variable);
+    }
+
+    public function updateRegister(Request $request, $variable){
+        if($variable == 1){
+            $this->validate($request, [
+                'nombre' => 'required',
+                'color' => 'required',
+            ]);
+        }else{
+            $this->validate($request, [
+                'nombre' => 'required',
+            ]);
+        }
+
+        if($variable == 1){
+            $carrer = \App\carrer::find($request->idVal);
+            $carrer->update([
+                'nombre' => $request->nombre,
+                'color' => $request->color,
+            ]);
+        } elseif($variable == 2){
+            $state = \App\state::find($request->idVal);
+            $state->update([
+                'nombre' => $request->nombre,
+            ]);
+        } elseif($variable == 3){
+            $municipality = \App\municipality::find($request->idVal);
+            $municipality->update([
+                'nombre' => $request->nombre,
+            ]);
+        } elseif($variable == 4){
+            $studentGrant = \App\studentGrant::find($request->idVal);
+            $studentGrant->update([
+                'nombre' => $request->nombre,
+            ]);
+        } elseif($variable == 5){
+            $transport = \App\transport::find($request->idVal);
+            $transport->update([
+                'nombre' => $request->nombre,
+            ]);
+        } elseif($variable == 6){
+            $typeHouse = \App\typeHouse::find($request->idVal);
+            $typeHouse->update([
+                'nombre' => $request->nombre,
+            ]);
+        }
+
+        return redirect('/admin/config/insert/'. $variable);
+    }
+
+    public function deleteRegister(Request $request, $variable){
+
+        if($variable == 1){
+            $carrer = \App\carrer::find($request->idVal2);
+            $carrer->delete();
+        } elseif($variable == 2){
+            $state = \App\state::find($request->idVal2);
+            $state->delete();
+        } elseif($variable == 3){
+            $municipality = \App\municipality::find($request->idVal2);
+            $municipality->delete();
+        } elseif($variable == 4){
+            $studentGrant = \App\studentGrant::find($request->idVal2);
+            $studentGrant->delete();
+        } elseif($variable == 5){
+            $transport = \App\transport::find($request->idVal2);
+            $transport->delete();
+        } elseif($variable == 6){
+            $typeHouse = \App\typeHouse::find($request->idVal2);
+            $typeHouse->delete();
+        }
+
+        return redirect('/admin/config/insert/'. $variable);
     }
 
     /**

@@ -15,7 +15,7 @@ class MunicipalityMigration extends Migration
          Schema::create('municipio', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 

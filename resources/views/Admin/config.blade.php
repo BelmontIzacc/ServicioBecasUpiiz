@@ -27,7 +27,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label class="form-label" for="hide-show-password">Contraseña</label>
-                    <input type="password" class="form-control" value="" name="password" id="password">
+                    <input type="password" class="form-control" value="" name="clave" id="clave">
                 </div>
             </div>
             <div class="modal-footer">
@@ -35,7 +35,7 @@
                     <button type="submit" class="btn btn-rounded btn-danger" formaction="" id="formButton">Editar datos</button>
                 </div>
             </div>
-          {!!Form::close()!!}
+            {!!Form::close()!!}
         </div>
     </div>
 </div><!--.modal-->

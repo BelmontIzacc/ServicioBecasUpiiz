@@ -33,7 +33,7 @@
                         <label for="remember">Recordarme</label>
                     </div>
                     <div class="float-right reset">
-                        <a href="">¡Olvide mi Contraseña!</a>
+                        <a href="{{asset('/forgetPass')}}">¡Olvide mi Contraseña!</a>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-rounded">Entrar</button>

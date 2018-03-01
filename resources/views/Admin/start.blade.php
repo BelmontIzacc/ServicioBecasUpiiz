@@ -22,7 +22,7 @@
                 <div class="widget-simple-sm-icon">
                     {{$tenement->count()}}
                 </div>
-                <div class="widget-simple-sm-fill-caption">Alumnos</div>
+                <div class="widget-simple-sm-fill-caption">Alumnos Registrados</div>
             </section><!--.widget-simple-sm-fill-->
         </div>
     </div>

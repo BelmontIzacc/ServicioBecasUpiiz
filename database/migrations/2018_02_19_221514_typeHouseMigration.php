@@ -16,7 +16,7 @@ class TypeHouseMigration extends Migration
         Schema::create('tCasa', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 

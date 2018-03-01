@@ -16,7 +16,7 @@ class StudentGrantMigration extends Migration
         Schema::create('beca', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 

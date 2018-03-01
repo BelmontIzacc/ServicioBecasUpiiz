@@ -1,7 +1,7 @@
-@extends('Admin.layout2')
+@extends('Admin.layout3')
 
 @section('title')
-<title>Inicio servicio medico</title>
+<title>Servicio Becas</title>
 @stop
 
 @section('css')
@@ -37,19 +37,6 @@
                             <input type="text" value="#00AABB" class="form-control" name="color" id="color2"/> 
                             <span class="input-group-addon"><i></i></span>
                         </div>
-                    @elseif($variable == 6)
-                    <br/>
-                    <label class="form-label" for="exampleInputDisabled2">Municipio</label>
-                    <!--{{$place=\App\place::lists('nombre', 'id')}} -->
-                    {!!Form::select('municipio', $place, 0, ['class'=>'select2 form-control', 'id'=>'municipio2'])!!}
-                    <br/>
-                    <br/>
-                    <div class="form-group">
-                        <label class="form-label" for="exampleInputDisabled2">Numero de clínica</label>
-                        <input id="numero2" type="text" value="" name="numero">
-                    </div>
-                    <label class="form-label" for="hide-show-password">Mapa de la ubicación (opcional)</label>
-                    {!!Form::textarea('mapa', null, array('class'=>'form-control', 'id'=>'mapa', 'placeholder'=>'Ej: <iframe></iframe>', 'size'=>'3x5'))!!}
                     @endif
                 </div>
             </div>
@@ -102,13 +89,13 @@
                         @elseif($variable == 2)
                             estado
                         @elseif($variable == 3)
-                            institución médica
-                        @elseif($variable == 4)
                             municipio
+                        @elseif($variable == 4)
+                            Becas
                         @elseif($variable == 5)
-                            estatus
+                            Transporte
                         @elseif($variable == 6)
-                            clínicas
+                            Casa
                         @endif
                 <a href="{{asset('/admin/config')}}"><button type="button" class="widget-header-btn">
                     <i class="font-icon font-icon-del"></i>
@@ -128,13 +115,13 @@
                                 @elseif($variable == 2)
                                     el estado
                                 @elseif($variable == 3)
-                                    la institución
-                                @elseif($variable == 4)
                                     el municipio
+                                @elseif($variable == 4)
+                                    la beca
                                 @elseif($variable == 5)
-                                    el estatus
+                                    el transporte
                                 @elseif($variable == 6)
-                                    la clínica
+                                    el tipo de casa
                                 @endif
                             </label>
                             <input name="nombre" type="text" class="form-control" 
@@ -144,13 +131,13 @@ Ej: Ingeniería en Sistemas Computacionales
 @elseif($variable == 2)
 Ej: Zacatecas
 @elseif($variable == 3)
-Ej: IMSS
-@elseif($variable == 4)
 Ej: Guadalupe
+@elseif($variable == 4)
+Ej: Institucional
 @elseif($variable == 5)
-Ej: Inscrito
+Ej: Carro
 @elseif($variable == 6)
-Ej: HGZMF
+Ej: Hotel
 @endif" value="">
                         
                         @if($variable == 1)
@@ -160,19 +147,6 @@ Ej: HGZMF
                                 <input type="text" value="#a0125a" class="form-control" name="color" id="color"/> 
                                 <span class="input-group-addon"><i></i></span>
                             </div>
-                        @elseif($variable == 6)
-                        <br/>
-                        <!--{{$place=\App\place::lists('nombre', 'id')}} -->
-                        <label class="form-label" for="exampleInputDisabled2">Municipio</label>
-                        {!!Form::select('municipio', $place->prepend('Seleccionar', 0), 0, ['class'=>'select2 form-control'])!!}
-                        <br/>
-                        <br/>
-                        <div class="form-group">
-                            <label class="form-label" for="exampleInputDisabled2">Numero de clínica</label>
-                            <input id="numero" type="text" value="" name="numero">
-                        </div>
-                        <label class="form-label" for="hide-show-password">Mapa de la ubicación (opcional)</label>
-                        {!!Form::textarea('mapa', null, array('class'=>'form-control', 'id'=>'mapa', 'placeholder'=>'Ej: <iframe></iframe>', 'size'=>'3x5'))!!}
                         @endif
                         
                         </div>
@@ -182,7 +156,6 @@ Ej: HGZMF
                 <div class="text-center">
                     <button type="submit" class="btn btn-rounded btn-primary btn-warning" formaction="{{asset('/admin/config/insert')}}/{{$variable}}">Agregar</button>
                 </div>
-                {!!Form::close()!!}
                 
                 <h5 class="m-t-lg with-border">
                     @if($variable == 1)
@@ -190,13 +163,13 @@ Ej: HGZMF
                     @elseif($variable == 2)
                         Estados registrados
                     @elseif($variable == 3)
-                        Instituciones registradas
-                    @elseif($variable == 4)
                         Municipios registrados
+                    @elseif($variable == 4)
+                        Becas Registradas
                     @elseif($variable == 5)
-                        Estatus registrados
+                        Transportes registrados
                     @elseif($variable == 6)
-                        Clínicas registradas
+                        Tipos de casas registradas
                     @endif
                 en el sistema</h5>
                 
@@ -213,7 +186,7 @@ Ej: HGZMF
                                     </td>
                                     <td class="table-check">
                                         <div class="font-11 color-blue-grey-lighter uppercase">Número de alumnos</div>
-                                        {{$carrer->students->count()}}
+                                        {{$carrer->user->count()}}
                                     </td>
                                     <td class="table-check">
                                         <div class="font-11 color-blue-grey-lighter uppercase">Color</div>
@@ -239,7 +212,7 @@ Ej: HGZMF
                                     </td>
                                     <td class="table-check">
                                         <div class="font-11 color-blue-grey-lighter uppercase">Número de alumnos</div>
-                                        {{$state->students->count()}}
+                                        {{$state->tenement->count()}}
                                     </td>
                                     <td class="table-check">
                                         <div class="font-11 color-blue-grey-lighter uppercase">Editar</div>
@@ -253,93 +226,88 @@ Ej: HGZMF
                                 </tr>
                                 @endforeach
                             @elseif($variable == 3)
-                                @foreach(\App\medicalInstitute::all() as $institute)
+                                @foreach(\App\municipality::all() as $mun)
                                 <tr>
                                     <td class="table-check">
                                         <div class="font-11 color-blue-grey-lighter uppercase">Institucione médica</div>
-                                        {{$institute->nombre}}
+                                        {{$mun->nombre}}
                                     </td>
                                     <td class="table-check">
                                         <div class="font-11 color-blue-grey-lighter uppercase">Número de registros</div>
-                                        {{$institute->medicalData->count()}}
+                                        {{$mun->tenement->count()}}
                                     </td>
                                     <td class="table-check">
                                         <div class="font-11 color-blue-grey-lighter uppercase">Editar</div>
                                         <button type="button"
                                                     class="btn btn-inline btn-sm btn-primary"
                                                     data-toggle="modal"
-                                                    data-target=".bd-example-modal-sm" onclick="updateInputs('Editar institución', '{{$institute->nombre}}', 3, {{$institute->id}});">
+                                                    data-target=".bd-example-modal-sm" onclick="updateInputs('Editar municipio', '{{$mun->nombre}}', 3, {{$mun->id}});">
                                                     <span class="font-icon font-icon-pencil"></span>
                                         </button>
                                     </td>
                                 </tr>
                                 @endforeach
                             @elseif($variable == 4)
-                                @foreach(\App\place::all() as $place)
+                                @foreach(\App\studentGrant::all() as $b)
                                 <tr>
                                     <td class="table-check">
                                         <div class="font-11 color-blue-grey-lighter uppercase">Municipio</div>
-                                        {{$place->nombre}}
+                                        {{$b->nombre}}
                                     </td>
                                     <td class="table-check">
                                         <div class="font-11 color-blue-grey-lighter uppercase">Número de alumnos</div>
-                                        {{$place->students->count()}}
-                                    </td>
-                                    <td class="table-check">
-                                        <div class="font-11 color-blue-grey-lighter uppercase">Número de clínicas</div>
-                                        {{$place->clinics->count()}}
+                                        {{$b->record->count()}}
                                     </td>
                                     <td class="table-check">
                                         <div class="font-11 color-blue-grey-lighter uppercase">Editar</div>
                                         <button type="button"
                                                     class="btn btn-inline btn-sm btn-primary"
                                                     data-toggle="modal"
-                                                    data-target=".bd-example-modal-sm" onclick="updateInputs('Editar municipio', '{{$place->nombre}}', 4, {{$place->id}});">
+                                                    data-target=".bd-example-modal-sm" onclick="updateInputs('Editar beca', '{{$b->nombre}}', 4, {{$b->id}});">
                                                     <span class="font-icon font-icon-pencil"></span>
                                         </button>
                                     </td>
                                 </tr>
                                 @endforeach
                             @elseif($variable == 5)
-                                @foreach(\App\status::all() as $status)
+                                @foreach(\App\transport::all() as $tra)
                                 <tr>
                                     <td class="table-check">
                                         <div class="font-11 color-blue-grey-lighter uppercase">Estatus</div>
-                                        {{$status->nombre}}
+                                        {{$tra->nombre}}
                                     </td>
                                     <td class="table-check">
                                         <div class="font-11 color-blue-grey-lighter uppercase">Número de alumnos</div>
-                                        {{$status->students->count()}}
+                                        {{$tra->tenement->count()}}
                                     </td>
                                     <td class="table-check">
                                         <div class="font-11 color-blue-grey-lighter uppercase">Editar</div>
                                         <button type="button"
                                                     class="btn btn-inline btn-sm btn-primary"
                                                     data-toggle="modal"
-                                                    data-target=".bd-example-modal-sm" onclick="updateInputs('Editar estatus', '{{$status->nombre}}', 5, {{$status->id}});">
+                                                    data-target=".bd-example-modal-sm" onclick="updateInputs('Editar transporte', '{{$tra->nombre}}', 5, {{$tra->id}});">
                                                     <span class="font-icon font-icon-pencil"></span>
                                         </button>
                                     </td>
                                 </tr>
                                 @endforeach
                             @elseif($variable == 6)
-                                @foreach(\App\clinic::all() as $clinic)
+                                @foreach(\App\typeHouse::all() as $th)
                                 <tr>
                                     <td class="table-check">
                                         <div class="font-11 color-blue-grey-lighter uppercase">Clínica</div>
-                                        {{$clinic}}
+                                        {{$th->nombre}}
                                     </td>
                                     <td class="table-check">
                                         <div class="font-11 color-blue-grey-lighter uppercase">Número de registros</div>
-                                        {{$clinic->medicalData->count()}}
+                                        {{$th->tenement->count()}}
                                     </td>
                                     <td class="table-check">
                                         <div class="font-11 color-blue-grey-lighter uppercase">Editar</div>
                                         <button type="button"
                                                     class="btn btn-inline btn-sm btn-primary"
                                                     data-toggle="modal"
-                                                    data-target=".bd-example-modal-sm" onclick="updateInputs2('Editar clínicas', '{{$clinic->tipo}}', 6, {{$clinic->id}}, {{$clinic->municipio_id}}, {{$clinic->numero}}, '{{$clinic->mapa}}');">
-                                                    <span class="font-icon font-icon-pencil"></span>
+                                                    data-target=".bd-example-modal-sm" onclick="updateInputs('Editar casa', '{{$th->nombre}}', 5, {{$th->id}});">
                                         </button>
                                     </td>
                                 </tr>

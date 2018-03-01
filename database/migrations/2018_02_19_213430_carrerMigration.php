@@ -16,7 +16,7 @@ class CarrerMigration extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('color', 8);
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 

@@ -62,6 +62,9 @@ class user extends Model implements AuthenticatableContract,
     public function __toString(){
         return $this->nombre.' '.$this->apellidoPaterno.' '.$this->apellidoMaterno;
     }
+    public function getTipoAttribute($value){
+        return config('global.tipos')[$value];
+    }
     public function tipo(){
         return $this->getOriginal('tipo');
     }

@@ -16,7 +16,7 @@ class TransportMigration extends Migration
         Schema::create('transporte', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 
