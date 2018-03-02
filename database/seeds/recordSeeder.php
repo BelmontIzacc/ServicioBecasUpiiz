@@ -16,10 +16,10 @@ class recordSeeder extends Seeder
             DB::table('antecedentes')->insert([
                 'usuario_id' => '2',
                 'beca_id' => '1',
-                'Abeca_id' => '1',
+                'Abeca_id' => '4',
                 'promActual' => '8.7',
-                'licenciatura' => 'Ing Sistemas',
-                'historiaAC' => '1'
+                'licenciatura' => 'Ninguna',
+                'historiaAC' => 'Regular'
             ]);
             
             $limit = config('global.limite');
@@ -31,7 +31,7 @@ class recordSeeder extends Seeder
                     'Abeca_id' => rand(1 , 3),
                     'promActual' => rand(5 , 8),
                     'licenciatura' => 'Sin Terminar',
-                    'historiaAC' => rand(1 , 3),
+                    'historiaAC' => rand(1 , 2),
                 ]);
             }
         }

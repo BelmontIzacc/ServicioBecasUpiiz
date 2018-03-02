@@ -22,7 +22,7 @@ class userTableSeeder extends Seeder
             'semestre' => '6',
             'apellidoPaterno' => 'Belmont',
             'apellidoMaterno' => 'Belmont',            
-            'carrera_id' =>'1',
+            
         ]);
 
         if(config('global.desarrollo')){
@@ -30,7 +30,7 @@ class userTableSeeder extends Seeder
                 'nombre' => 'Alejandra',
                 'boleta' => '2016670007',
                 'tipo' => '2',
-                'password' => bcrypt('admin'),
+                'password' => bcrypt('fea'),
                 'edad' => '20',
                 'grupo' => '2cm3',
                 'semestre' => '6',
@@ -56,7 +56,7 @@ class userTableSeeder extends Seeder
                 DB::table('usuario')->insert([
                     'nombre' => $name,
                     'boleta' => '20'.rand(10 , 30).rand(10 , 30).rand(10 , 70).rand(10 , 60),
-                    'tipo' => '2',
+                    //'tipo' => '2',
                     'password' => bcrypt('0'),
                     'edad' => rand (18 , 22),
                     'grupo' => '2cm3',

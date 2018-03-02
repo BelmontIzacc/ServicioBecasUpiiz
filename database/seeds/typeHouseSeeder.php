@@ -13,16 +13,19 @@ class typeHouseSeeder extends Seeder
     {
         //
             DB::table('tCasa')->insert([
-                'nombre' => 'casa',
+                'nombre' => 'Casa Sola',
             ]); 
             DB::table('tCasa')->insert([
                 'nombre' => 'Departamento',
             ]); 
             DB::table('tCasa')->insert([
-                'nombre' => 'Hotel',
+                'nombre' => 'Vecindario',
             ]); 
             DB::table('tCasa')->insert([
-                'nombre' => 'rommi',
+                'nombre' => 'Cuarto de huespedes',
+            ]);
+            DB::table('tCasa')->insert([
+                'nombre' => 'Cuarto de azotea',
             ]);
     }
 }

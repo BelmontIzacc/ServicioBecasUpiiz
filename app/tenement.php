@@ -26,6 +26,7 @@ class tenement extends Model
     	'viajeMensual',
     	'tiempo',
         'gastoMensual',
+        'transporte',
     ];
 
     public function user(){

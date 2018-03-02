@@ -15,12 +15,12 @@ class spendingSeeder extends Seeder
         if(config('global.desarrollo')){
             DB::table('gasto')->insert([
                 'usuario_id' => '2',
-                'ingresoMensual' => '1',
-                'gastoMensual' => '1',
-                'noIntegrantes' => '8.7',
-                'apoyo' => 'Ing Sistemas',
-                'trabajo' => '1',
-                'dependencia' => '1',
+                'ingresoMensual' => '750',
+                'gastoMensual' => '10,000',
+                'noIntegrantes' => '9',
+                'apoyo' => '2',
+                'trabajo' => 'No',
+                'dependencia' => 'Si,totalmente',
             ]);
             
             $limit = config('global.limite');

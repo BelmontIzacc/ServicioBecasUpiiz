@@ -15,20 +15,19 @@ class tenementSeeder extends Seeder
         if(config('global.desarrollo')){
             DB::table('vivienda')->insert([
                 'usuario_id' => '2',
-                'municipio_id' => '1',
-                'estado_id' => '2',
+                'municipio_id' => '17',
+                'estado_id' => '31',
                 'tipoCasa_id' => '1',
-                'transporte_id' => '1',
-                'habitantes' => '1',
-                'habitaciones' => '1',
-                'calle' => 'Britaneas',
-                'numExterior' => '108',
-                'numInterior' => '12-A',
-                'colonia' => 'Lomas de pollo',
-                'codigoPostal' => '98600',
-                'viajeMensual' => '20',
-                'tiempo' => '20',
-                'gastoMensual' => '400',
+                'transporte_id' => '2',
+                'habitantes' => '3',
+                'habitaciones' => '9',
+                'residencia' => 'permanente',
+                'calle' => 'niños heroes',
+                'numExterior' => '46',
+                'numInterior' => 'B',
+                'colonia' => 'El paraiso',
+                'codigoPostal' => '98613',
+                'tiempo' => '15-30',
             ]);
             
             $limit = config('global.limite');
@@ -42,6 +41,7 @@ class tenementSeeder extends Seeder
                     'transporte_id' => rand (1 , 2),
                     'habitantes' => rand (1 , 2),
                     'habitaciones' => rand (1 , 9),
+                    'residencia' => 'casa generica',
                     'calle' => 'Calle generica',
                     'numExterior' => rand (0 , 999),
                     'numInterior' => rand (0 , 999),
@@ -50,6 +50,7 @@ class tenementSeeder extends Seeder
                     'viajeMensual' => rand (0 , 999),
                     'tiempo' => rand (0 , 999),
                     'gastoMensual' => rand (0 , 999),
+                    'transporte' => rand (0 , 999),
                 ]);
             }
         }

@@ -33,17 +33,18 @@ class TenementMigration extends Migration
 
             $table->integer('habitantes')->nullable();
             $table->integer('habitaciones')->nullable();
-            $table->integer('residencia')->nullable();
+            $table->string('residencia',100)->nullable();
             //$table->string('direccion',50);
 
             $table->string('calle', 50)->nullable();
             $table->string('numExterior', 8)->nullable();
             $table->string('numInterior', 8)->default(0);
             $table->string('colonia', 50)->nullable();
-            $table->integer('codigoPostal')->nullable();
+            $table->string('codigoPostal',8)->nullable();
 
             $table->integer('viajeMensual')->nullable();
-            $table->integer('tiempo')->nullable();
+            $table->string('tiempo')->nullable();
+            $table->string('transporte')->nullable();
             $table->integer('gastoMensual')->nullable();
 
             //$table->timestamps();

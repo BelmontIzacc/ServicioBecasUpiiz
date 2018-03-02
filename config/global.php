@@ -3,7 +3,7 @@
 return [
     //Desarrollo
     'desarrollo' => true,
-    'limite' => 50,
+    'limite' => 25,
     //Fin desarrollo
 
     'tipos' => array(

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class spendingMigration extends Model
+class spending extends Model
 {
     //
     protected $table = 'gasto';

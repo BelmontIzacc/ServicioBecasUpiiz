@@ -27,11 +27,16 @@ class AdminController extends Controller
     public function index()
     {
         $index = 5;
+        $user = \App\user::all();
         $tenement = \App\tenement::all();
+        $personal = \App\personal::all();
+        $record = \App\record::all();
+        $spending = \App\spending::all();
 
         return view('Admin.start',[
         'index' => $index,
-       'tenement'=>$tenement,
+        'tenement'=>$tenement,
+        'user'=>$user,
         ]);
     }
 
@@ -198,6 +203,47 @@ class AdminController extends Controller
         }
 
         return redirect('/admin/config/insert/'. $variable);
+    }
+
+    public function eliminarRegistros()
+    {
+        
+      $personal = \App\personal::All();
+        foreach($personal as $p)
+        {
+            $p->delete();
+        }
+        
+      $record = \App\record::All();
+        foreach($record as $r)
+        {
+            $r->delete();
+        }
+          
+      $tenement = \App\tenement::All();
+        foreach($tenement as $t)
+        {
+            $t->delete();
+        }
+        
+      $spending = \App\spending::All();
+        foreach($spending as $s)
+        {
+            $s->delete();
+        }
+        
+      $user = \App\user::All();
+        foreach($user as $u)
+        {
+            if($u->id==1)
+            {
+                
+            }
+            else
+            {
+                $u->delete();
+            }
+        }    
     }
 
     /**

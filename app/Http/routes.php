@@ -24,6 +24,9 @@ Route::get('/admin/config/insert/{variable}', 'adminController@getRegisterWindow
 Route::post('/admin/config/insert/{variable}', 'adminController@insertRegister');
 Route::patch('/admin/config/insert/{variable}', 'adminController@updateRegister');
 Route::delete('/admin/config/insert/{variable}', 'adminController@deleteRegister');
+Route::get('/eliminarAll','adminController@eliminarRegistros');
+//-----------------------------------------------------------------------------------//
+Route::get('/ExportExcelAll','ExcelController@All');
 //-----------------------------------------------------------------------------------//
 Route::get('/person/profile/{type}', 'shareController@profile');
 Route::post('/person/profile/{type}', 'shareController@profilePassword');

@@ -16,8 +16,8 @@ class personalSeeder extends Seeder
             DB::table('personales')->insert([
                 'usuario_id' => '2',
                 'enfermedades' => 'Todas xD',
-                'telCasa' => '492-127-33-00',
-                'telCelular' => '92 2 59 66',
+                'telCelular' => '492-127-33-00',
+                'telCasa' => '92 2 59 66',
                 'nomTutor' => 'Momi',
                 'telTutor' => '9225966',
             ]);
