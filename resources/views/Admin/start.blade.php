@@ -51,38 +51,20 @@
 @stop
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-lg-offset-0 col-lg-2 col-md-3 col-sm-3 col-xs-6">
-            <section class="widget widget-simple-sm-fill grey">
-                <div class="widget-simple-sm-icon">
-                    {{$tenement->count()}}
-                </div>
-                <div class="widget-simple-sm-fill-caption">Alumnos Registrados</div>
-            </section><!--.widget-simple-sm-fill-->
-        </div>
-    </div>
-</div>
 
-<div class="container">
-    <div class="row">
-        <div class="text-center">
-            <div class="col-lg-3 col-md-3">
-                 <button type="button" class="btn btn-rounded btn-inline btn-success" onclick="descargarExcell();" id="formButton2"
-
-                                        @if($tenement->count() > 0)
-                                            
-                                        @elseif($tenement->count() == 0)
-                                            disabled=""        
-                                        @endif
-
-                                    >Listado de los Registros</button>
-            </div> 
-        </div>
-    </div>
-</div>
-
-
+<section class="card">
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-lg-offset-0 col-md-12 col-sm-1 col-xs-6">
+                                <section class="widget widget-simple-sm-fill grey">
+                                    <div class="widget-simple-sm-icon">
+                                                {{$tenement->count()}}
+                                    </div>
+                                    <div class="widget-simple-sm-fill-caption">Alumnos Registrados</div>
+                                </section><!--.widget-simple-sm-fill-->
+                            </div>                            
+                        </div>
 <div class="col-md-3">
     <div class="card">
         <div class="card-header text-center">
@@ -126,11 +108,32 @@
             </div>
         </div>
     </div>
-</div>
-</div>
+    <div class="col-md-3">
+        <div class="text-center">
+            <div class="col-lg-3 col-md-3">
+                <button type="button" class="btn btn-rounded btn-inline btn-success" onclick="descargarExcell();" id="formButton2"
 
+                        @if($tenement->count() > 0)
+                                                                
+                        @elseif($tenement->count() == 0)
+                            disabled=""        
+                        @endif
+
+                >Listado de los Registros</button>
+            </div> 
+        </div>
+    </div>
+</div>
+</div>
+</section>
+
+
+
+<section class="card">
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-md-6">
 {!!Form::open(array('url'=>'/admin/Date', 'method'=>'post', 'id'=>'DateForm'))!!}
-<div class="col-md-5">
     <div class="card">
         <div class="card-header text-center">
                 Cambiar Fechas de Registro
@@ -173,21 +176,18 @@
                     </p>
                 </div>
             </div>
-        </div>
-            <div class="text-center">
+             <div class="text-center">
                 <button type="submit" class="btn btn-rounded btn-inline btn-warning" id="formButton2">Guardar</button>
             </div>
-    </div> 
-</div>
-</div>                
+        </div>
+    </div>              
 {!!Form::close()!!}
 
-
-
-<div class="col-md-5">
+<div class="col-md-6">
+{!!Form::open(array('url'=>'/admin/Date', 'method'=>'post', 'id'=>'DateForm'))!!}
     <div class="card">
         <div class="card-header text-center">
-                Fechas de Registro
+                Cambiar Fechas de Registro
             </div>
             <div class="row">
                 <div class="card-block">
@@ -228,9 +228,13 @@
                 </div>
             </div>
         </div>
-    </div> 
-</div>
-</div>     
+    </div>             
+{!!Form::close()!!}
+            </div>
+        </div><!--.row-->
+    </div>
+</section>    
+
 @stop
 
 @section('scripts')
@@ -246,3 +250,47 @@
     <script src="{{asset('/Template/js/lib/daterangepicker/daterangepicker.js')}}"></script>
 
 @stop
+
+<!--
+<div class="col-md-5">
+    <div class="card">
+        <div class="card-header text-center">
+                Fechas de Registro
+            </div>
+            <div class="row">
+                <div class="card-block">
+                    <p class="card-text">
+                        <div class="col-md-12">
+                             <div class="{{$classSizeForms}}">
+                                <fieldset class="form-group">
+                                    <label class="form-label">Inicio</label>
+                                        <div class='input-group date'>
+                                            <input type="text" value="{{$dateSE->find(1)->fechaInicio->format('d-m-Y')}}" class="form-control" name="nacimiento" disabled="">
+                                                <span class="input-group-addon">
+                                                    <i class="font-icon font-icon-calend"></i>
+                                                </span>
+                                        </div>
+                                </fieldset>
+                            </div>
+                        </div>   
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card-block">
+                    <p class="card-text">
+                        <div class="col-md-12">
+                             <div class="{{$classSizeForms}}">
+                                <fieldset class="form-group">
+                                    <label class="form-label">Fin</label>
+
+                                </fieldset>
+                            </div>
+                        </div>   
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+</div> -->

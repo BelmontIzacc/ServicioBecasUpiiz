@@ -315,13 +315,24 @@ class AdminController extends Controller
         $dateFormated = Carbon::createFromFormat($input, $date)->format($output);
         $dateFormated2 = Carbon::createFromFormat($input2, $date2)->format($output2);
 
-        $dateES = \App\startEndDate::find(1);
+        if($dateFormated <= $dateFormated2)
+        {
+            session()->flash('message', 'Se a actualizado las Fechas ');
+            session()->flash('type', 'aquamarine');
+
+            $dateES = \App\startEndDate::find(1);
             $dateES->update([
                 'fechaInicio' => $dateFormated,
                 'fechaFin' => $dateFormated2
             ]);
-
-            return redirect('/admin');
+        }
+        else
+        {
+            session()->flash('message', 'La Fecha Fin es Inferior a la Fecha Inicio');
+            session()->flash('type', 'danger');
+        }
+        
+        return redirect('/admin');
     }
 
     /**
