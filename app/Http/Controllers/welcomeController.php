@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class welcomeController extends Controller
 {
@@ -19,7 +20,25 @@ class welcomeController extends Controller
     {
         $index=1;
         Auth::logout();
-        return view('welcome', ['index'=>$index]);
+        $dateSE = \App\startEndDate::all();
+        $dateA = Carbon::now();
+        $dateA = $dateA->format('Y-m-d');
+
+        
+
+         $fecha_inicio = strtotime($dateSE->find(1)->fechaInicio->format('Y-m-d'));
+         $fecha_fin = strtotime($dateSE->find(1)->fechaFin->format('Y-m-d'));
+         $fecha = strtotime($dateA);
+
+         if(($fecha >= $fecha_inicio) && ($fecha <= $fecha_fin))
+            $valor=1;
+         else
+             $valor=2;
+
+        return view('welcome', [
+        'index'=>$index,
+        'valor' =>$valor
+        ]);
     }
 
     /**
@@ -48,6 +67,7 @@ class welcomeController extends Controller
         $index = 4;
         return view('errors.unavailable', ['index'=>$index]);
     }
+
 
     /**
      * Display the specified resource.

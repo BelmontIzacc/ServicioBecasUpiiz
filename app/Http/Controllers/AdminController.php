@@ -31,9 +31,6 @@ class AdminController extends Controller
         $variable = 0;
         $user = \App\user::all();
         $tenement = \App\tenement::all();
-        $personal = \App\personal::all();
-        $record = \App\record::all();
-        $spending = \App\spending::all();
         $dateSE = \App\startEndDate::all();
 
         return view('Admin.start',[
@@ -323,6 +320,8 @@ class AdminController extends Controller
                 'fechaInicio' => $dateFormated,
                 'fechaFin' => $dateFormated2
             ]);
+
+            return redirect('/admin');
     }
 
     /**
