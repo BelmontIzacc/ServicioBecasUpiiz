@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Collection;
 
 use Hash;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -27,16 +28,20 @@ class AdminController extends Controller
     public function index()
     {
         $index = 5;
+        $variable = 0;
         $user = \App\user::all();
         $tenement = \App\tenement::all();
         $personal = \App\personal::all();
         $record = \App\record::all();
         $spending = \App\spending::all();
+        $dateSE = \App\startEndDate::all();
 
         return view('Admin.start',[
+        'variable' => $variable,
         'index' => $index,
         'tenement'=>$tenement,
         'user'=>$user,
+        'dateSE'=>$dateSE
         ]);
     }
 
@@ -75,6 +80,36 @@ class AdminController extends Controller
            return redirect('/admin/config/insert/'.$variable);
         } else{
             return redirect('/admin/config')
+            ->withErrors([
+                $request->clave => 'No coinciden las contraseñas D:',
+            ]);
+        }
+    }
+
+    public function chedkPasswordReset(Request $request, $variable){
+        $this->validate($request, [
+            'clave' => 'required',
+        ]);
+            
+        if(Hash::check($request->clave, Auth::user()->password)){
+            $index = 5;
+            $user = \App\user::all();
+            $tenement = \App\tenement::all();
+            $personal = \App\personal::all();
+            $record = \App\record::all();
+            $spending = \App\spending::all();
+            $dateSE = \App\startEndDate::all();
+
+        return view('Admin.start',[
+        'variable' => $variable,
+        'index' => $index,
+        'tenement'=>$tenement,
+        'user'=>$user,
+        'dateSE'=>$dateSE
+        ]);
+
+        } else{
+            return redirect('/admin/')
             ->withErrors([
                 $request->clave => 'No coinciden las contraseñas D:',
             ]);
@@ -265,6 +300,29 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+           
+            'Date1'=>'required|date',
+            'Date2'=>'required|date',
+
+        ]);
+
+        $input = 'd-m-Y';
+        $date = $request->input('Date1');
+        $output = 'Y-m-d';
+
+        $input2 = 'd-m-Y';
+        $date2 = $request->input('Date2');
+        $output2 = 'Y-m-d';
+
+        $dateFormated = Carbon::createFromFormat($input, $date)->format($output);
+        $dateFormated2 = Carbon::createFromFormat($input2, $date2)->format($output2);
+
+        $dateES = \App\startEndDate::find(1);
+            $dateES->update([
+                'fechaInicio' => $dateFormated,
+                'fechaFin' => $dateFormated2
+            ]);
     }
 
     /**

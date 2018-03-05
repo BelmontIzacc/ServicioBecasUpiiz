@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call(recordSeeder::class);
         $this->call(spendingSeeder::class);
         $this->call(tenementSeeder::class);
+        $this->call(dateSeeder::class);
 
         Model::reguard();
     }

@@ -18,15 +18,17 @@ Route::get('/login', 'Auth\AuthController@getLogin');
 Route::post('/login', 'Auth\AuthController@postLogin');
 //-----------------------------------------------------------------------------------//
 Route::get('/admin', 'adminController@index');
+Route::post('/admin/Date', 'adminController@store');
+Route::post('/admin/{variable}', 'adminController@chedkPasswordReset');
 Route::get('/admin/config','adminController@configIndex');
 Route::post('/admin/config/{variable}', 'adminController@checkPassword');
 Route::get('/admin/config/insert/{variable}', 'adminController@getRegisterWindow');
 Route::post('/admin/config/insert/{variable}', 'adminController@insertRegister');
 Route::patch('/admin/config/insert/{variable}', 'adminController@updateRegister');
 Route::delete('/admin/config/insert/{variable}', 'adminController@deleteRegister');
-Route::get('/eliminarAll','adminController@eliminarRegistros');
+Route::get('/admin/eliminarAll','adminController@eliminarRegistros');
 //-----------------------------------------------------------------------------------//
-Route::get('/ExportExcelAll','ExcelController@All');
+Route::get('/admin/ExportExcelAll','ExcelController@All');
 //-----------------------------------------------------------------------------------//
 Route::get('/person/profile/{type}', 'shareController@profile');
 Route::post('/person/profile/{type}', 'shareController@profilePassword');
