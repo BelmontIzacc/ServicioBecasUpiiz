@@ -28,6 +28,14 @@ Route::patch('/admin/config/insert/{variable}', 'adminController@updateRegister'
 Route::delete('/admin/config/insert/{variable}', 'adminController@deleteRegister');
 Route::get('/admin/eliminarAll','adminController@eliminarRegistros');
 //-----------------------------------------------------------------------------------//
+// Password reset link request routes...
+Route::get('/password/email', 'Auth\PasswordController@getEmail');
+Route::post('/password/email', 'Auth\PasswordController@postEmail');
+
+// Password reset routes...
+Route::get('/password/reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('/password/reset', 'Auth\PasswordController@postReset');
+//-----------------------------------------------------------------------------------//
 Route::get('/admin/ExportExcelAll','ExcelController@All');
 //-----------------------------------------------------------------------------------//
 Route::get('/person/profile/{type}', 'shareController@profile');
@@ -38,3 +46,4 @@ Route::get('/forgetPass','forgetController@search');
 //-----------------------------------------------------------------------------------//
 Route::get('/logout','Auth\AuthController@getLogout');
 Route::get('/blocked', 'welcomeController@stop');
+Route::get('/Belmont', 'welcomeController@night');

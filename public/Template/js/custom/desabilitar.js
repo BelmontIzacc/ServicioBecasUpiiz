@@ -15,7 +15,7 @@ function authUser(title, variable){
 function descargarExcell()
 {
 	ventana = window.open("/admin/ExportExcelAll","nuevo","width=500,height=100");
-    setTimeout("cerrar()",1500);
+    setTimeout("cerrar()",2500);
 }
 
 function reset(title, variable){

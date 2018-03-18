@@ -14,7 +14,7 @@
         <div class="container-fluid">
             {!!Form::open(array('url'=>'/login', 'class'=>'sign-box', 'method'=>'post'))!!}
                 <div class="sign-avatar">
-                    <img src="{{asset('Template/img/avatar-sign.png')}}" alt="">
+                    <img src="{{asset('Template/img/upiiz4.svg')}}" alt="" style="height:100px;width:auto;">
                 </div>
                 
                 @if(count($errors) > 0)
@@ -45,7 +45,7 @@
                         <label for="remember">Recordarme</label>
                     </div>
                     <div class="float-right reset">
-                        <a href="{{asset('/forgetPass')}}">¡Olvide mi Contraseña!</a>
+                        <a href="{{asset('/password/email')}}">¡Olvide mi Contraseña!</a>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-rounded">Entrar</button>

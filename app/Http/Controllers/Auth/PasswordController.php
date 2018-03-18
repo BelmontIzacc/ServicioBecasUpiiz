@@ -25,8 +25,21 @@ class PasswordController extends Controller
      *
      * @return void
      */
+        //protected $redirectTo = '/login';
+    protected function resetPassword($user, $password){
+            $user->password = bcrypt($password);
+            $user->save();
+    }
     public function __construct()
     {
         $this->middleware('guest');
     }
+    public function redirectPath(){
+        if (property_exists($this, 'redirectPath')) {
+          return $this->redirectPath;
+        }
+
+          return property_exists($this, 'redirectTo') ? $this->redirectTo : '/login';
+    }
+    
 }

@@ -43,7 +43,7 @@
             		<div class="col-lg-1 col-md-1">
 				    	<div class="tbl-cell tbl-cell-photo">
 				            <a >
-				                <img src="{{asset('/Template/img/avatar.svg')}}" alt="" style="height:50px;width:auto;" id="modalMessagePhoto" class="round">
+				                <img src="{{asset('/Template/img/upiiz4.svg')}}" alt="" style="height:100px;width:auto;" id="modalMessagePhoto" class="round">
 				            </a>
 				        </div>
 		            </div
@@ -82,7 +82,7 @@
 	
 	                    <div class="dropdown user-menu">
 	                        <button class="dropdown-toggle" id="dd-user-menu" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	                            <img src="{{asset('/Template/img/avatar-2-64.png')}}" alt="">
+	                            <img src="{{asset('/Template/img/upiiz4.svg')}}" alt="">
 	                        </button>
 	                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd-user-menu">
 	                            <a class="dropdown-item" href="{{asset('/person/profile/1')}}"><span class="font-icon glyphicon glyphicon-user"></span>Perfil</a>

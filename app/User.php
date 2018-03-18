@@ -8,6 +8,7 @@ use Sofa\Eloquence\Eloquence;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
+//use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
@@ -35,6 +36,7 @@ class user extends Model implements AuthenticatableContract,
         protected $fillable = [
         'nombre',
         'boleta',
+        'email',
         'tipo',
         'password',
         'edad',

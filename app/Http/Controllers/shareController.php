@@ -77,6 +77,7 @@ class shareController extends Controller
             'nombre' => 'required|min:3|max:50',
             'apellidoPaterno' => 'required|min:3|max:50',
             'apellidoMaterno' => 'required|min:3|max:50',
+            'email'           => 'required|min:8|max:28',
             'identificacion' => 'required|same:identificacion2|max:12|:min:5',
             'identificacion2' => 'required',
             'clave' => 'required|same:clave2|min:5|max:30',
@@ -90,6 +91,7 @@ class shareController extends Controller
             'apellidoPaterno' => $request->apellidoPaterno,
             'apellidoMaterno' => $request->apellidoMaterno,
             'boleta' => $request->identificacion,
+            'email' => $request->email,
             'password' => bcrypt($request->clave),
             'edad' => '00',
             'grupo' => 'Admin',
@@ -100,11 +102,6 @@ class shareController extends Controller
         session()->flash('type', 'success');
 
         return redirect('/person/profile/'.$type);
-    }
-
-    public function index()
-    {
-        //
     }
 
     /**

@@ -58,7 +58,7 @@
           <?php $url = '/person/profile/'.$type; ?>
           {!!Form::model($user, array('url'=>$url, 'method'=>'patch', 'class'=>'sign-box'))!!}
               <div class="sign-avatar">
-                  <a data-toggle="modal" data-target="#photoModal"><img src="" alt=""></a>
+                  <a data-toggle="modal" data-target="#photoModal"><img src="{{asset('/Template/img/upiiz4.svg')}}" alt=""></a>
               </div>
               <small class="text-muted">Actualiza tu informacion</small>
               <br/>
@@ -76,6 +76,10 @@
               <div class="form-group">
                   <label class="form-label" for="exampleInputDisabled2">Apellido materno</label>
                   {!!Form::text('apellidoMaterno', null, ['class'=>'form-control', 'placeholder'=>'Ej: Apellido'])!!}
+              </div>
+              <div class="form-group">
+                  <label class="form-label" for="exampleInputDisabled2">Correo</label>
+                  {!!Form::text('email', null, ['class'=>'form-control', 'placeholder'=>'Ej: Email'])!!}
               </div>
               <div class="form-group">
                   <label class="form-label" for="exampleInputDisabled2">Identificación</label>
@@ -103,7 +107,7 @@
           @else
            <form class="sign-box">
               <div class="sign-avatar">
-                  <img src="{{Auth::user()->foto}}" alt="">
+                  <img src="{{asset('/Template/img/upiiz4.svg')}}" alt="">
               </div>
               <header class="sign-title">{{$user}}</header>
 

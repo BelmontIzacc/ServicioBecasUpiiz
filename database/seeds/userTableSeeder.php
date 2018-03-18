@@ -21,7 +21,8 @@ class userTableSeeder extends Seeder
             'grupo' => '2cm3',
             'semestre' => '6',
             'apellidoPaterno' => 'Belmont',
-            'apellidoMaterno' => 'Belmont',            
+            'apellidoMaterno' => 'Belmont',
+            'email' => 'jisagiizacc@gmail.com',        
             
         ]);
 

@@ -67,7 +67,13 @@ class welcomeController extends Controller
         $index = 4;
         return view('errors.unavailable', ['index'=>$index]);
     }
+    public function night()
+    {
+        //
+        $index = -1;
 
+        return view('Admin.night', ['index'=>$index]);
+    }
 
     /**
      * Display the specified resource.
