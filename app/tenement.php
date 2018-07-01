@@ -25,8 +25,10 @@ class tenement extends Model
     	'codigoPostal',
     	'viajeMensual',
     	'tiempo',
+        'residencia',
         'gastoMensual',
         'transporte',
+        'pagoMensual',
     ];
 
     public function user(){

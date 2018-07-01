@@ -16,7 +16,7 @@ class recordSeeder extends Seeder
             DB::table('antecedentes')->insert([
                 'usuario_id' => '2',
                 'beca_id' => '1',
-                'Abeca_id' => '4',
+                'actualBeca' => 'Becalos',
                 'promActual' => '8.7',
                 'licenciatura' => 'Ninguna',
                 'historiaAC' => 'Regular'
@@ -28,7 +28,7 @@ class recordSeeder extends Seeder
                 DB::table('antecedentes')->insert([
                     'usuario_id' => $i+3,
                     'beca_id' => rand(1 , 3),
-                    'Abeca_id' => rand(1 , 3),
+                    'actualBeca' => rand(1 , 3),
                     'promActual' => rand(5 , 8),
                     'licenciatura' => 'Sin Terminar',
                     'historiaAC' => rand(1 , 2),

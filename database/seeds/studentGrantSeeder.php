@@ -11,15 +11,11 @@ class studentGrantSeeder extends Seeder
      */
     public function run()
     {
-        //
-         DB::table('beca')->insert([
- 			'nombre' => 'Institucional A',
-        	]);
         DB::table('beca')->insert([
-                'nombre' => 'Institucional B',
+                'nombre' => 'Nuevo Becario',
             ]);
         DB::table('beca')->insert([
-                'nombre' => 'Institucional C',
+                'nombre' => 'Telmex',
             ]);
         DB::table('beca')->insert([
                 'nombre' => 'Becalos A',
@@ -31,7 +27,25 @@ class studentGrantSeeder extends Seeder
                 'nombre' => 'Becalos C',
             ]);
         DB::table('beca')->insert([
-                'nombre' => 'Telmex',
+ 			    'nombre' => 'Institucional A',
+        	]);
+        DB::table('beca')->insert([
+                'nombre' => 'Institucional B',
+            ]);
+        DB::table('beca')->insert([
+                'nombre' => 'Institucional C',
+            ]);
+        DB::table('beca')->insert([
+                'nombre' => 'Manutención 1er. ciclo',
+            ]);
+        DB::table('beca')->insert([
+                'nombre' => 'Manutención 2do. ciclo',
+            ]);
+        DB::table('beca')->insert([
+                'nombre' => 'Manutención 3er. ciclo',
+            ]);
+        DB::table('beca')->insert([
+                'nombre' => 'Manutención 4to. ciclo',
             ]);
     }
 }

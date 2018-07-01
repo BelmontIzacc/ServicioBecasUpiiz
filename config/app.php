@@ -150,6 +150,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
 
+        Barryvdh\DomPDF\ServiceProvider::class,
     ],
 
     /*
@@ -205,6 +206,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ],
 
 ];

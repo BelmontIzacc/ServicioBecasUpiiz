@@ -28,6 +28,7 @@ class tenementSeeder extends Seeder
                 'colonia' => 'El paraiso',
                 'codigoPostal' => '98613',
                 'tiempo' => '15-30',
+                'pagoMensual' => '8000',
             ]);
             
             $limit = config('global.limite');
@@ -51,6 +52,7 @@ class tenementSeeder extends Seeder
                     'tiempo' => rand (0 , 999),
                     'gastoMensual' => rand (0 , 999),
                     'transporte' => rand (0 , 999),
+                    'pagoMensual' => rand(0,10000),
                 ]);
             }
         }

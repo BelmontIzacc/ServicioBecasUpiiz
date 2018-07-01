@@ -13,10 +13,10 @@ class transportSeeder extends Seeder
     {
         //
          DB::table('transporte')->insert([
- 			'nombre' => 'Uber',
+ 			'nombre' => 'Automóvil',
         	]);
         DB::table('transporte')->insert([
-                'nombre' => 'Carro',
+                'nombre' => 'Taxi o Uber',
             ]);
         DB::table('transporte')->insert([
                 'nombre' => 'Camion',
@@ -31,7 +31,7 @@ class transportSeeder extends Seeder
                 'nombre' => 'Motoneta',
             ]); 
         DB::table('transporte')->insert([
-                'nombre' => 'Taxi',
+                'nombre' => 'Caminando',
             ]);       
     }
 }

@@ -12,12 +12,12 @@ class record extends Model
     protected $fillable = [
     	'usuario_id',
     	'beca_id',
-    	'Abeca_id',
+    	'actualBeca',
     	'promActual',
     	'licenciatura',
     	'historiaAC',
     ];
-
+    
     public function user(){
         return $this->belongsTo(user::class, 'usuario_id');
     }

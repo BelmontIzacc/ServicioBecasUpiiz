@@ -27,7 +27,7 @@ class PersonalMigration extends Migration
             $table->string('nomTutor',50)->nullable();
             $table->string('telTutor',50)->nullable();
 
-            //$table->timestamps();
+            $table->timestamps();
 
         });
     }

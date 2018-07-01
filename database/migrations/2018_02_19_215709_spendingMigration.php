@@ -26,7 +26,7 @@ class SpendingMigration extends Migration
         $table->string('trabajo')->nullable();
         $table->string('dependencia')->nullable();
 
-        //$table->timestamps();
+        $table->timestamps();
         });
     }
 

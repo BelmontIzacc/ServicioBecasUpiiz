@@ -8,10 +8,11 @@
 	@yield('title')
 
 	@yield('css')
-	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-            <link href="/Templates/css/font-awesome.css" rel="stylesheet" type="text/css" />
-            <link href="/Templates/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-            <link href="/Templates/css/admin.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{asset('/Templates/css/front-awsome.css')}}">
+    <link rel="stylesheet" href="{{asset('/Templates/css/admin.css')}}">
+    <link rel="stylesheet" href="{{asset('/Templates/css/bootstrap.min.css')}}">
+    <link href="{{asset('/Templates/css/animate.css" rel="stylesheet" type="text/css')}}">
+    <link href="{{asset('/Templates/css/jquerysctipttop.css')}}" rel="stylesheet" type="text/css">
 </head>
 
 <body class="horizontal-navigation">
@@ -23,14 +24,14 @@
     <!--\\\\\\\ brand end \\\\\\-->
     <div class="header_top_bar"> 
         <div class="row center">
-            <div class="col-lg-3">
+            <div class="col-sm-3 col-md-3 col-xs-2">
                 <section>
                     <div>
                         <img src="/Templates/img/IPN.png" width="50" height="50">
                     </div>
                 </section>
             </div>
-            <div class="col-lg-6">
+            <div class="col-sm-6 col-md-6 col-xs-8">
                 <section>
                     <div><strong>{{config('globalInfo.nombreUpiiz')}}</strong></div>
                 </section>
@@ -38,10 +39,10 @@
                     <div><strong>{{config('globalInfo.nombreUpiiz2')}}</strong></div>
                 </section>
             </div>
-            <div class="col-lg-3">
+            <div class="col-sm-3 col-md-3 col-xs-2">
                 <section>
                     <div>
-                        <img src="/Templates/img/6.png" width="40" height="50">
+                        <img src="/Templates/img/6.png" width="50" height="50">
                     </div>
                 </section>
             </div>

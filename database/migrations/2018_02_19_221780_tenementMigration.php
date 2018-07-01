@@ -42,12 +42,13 @@ class TenementMigration extends Migration
             $table->string('colonia', 50)->nullable();
             $table->string('codigoPostal',8)->nullable();
 
-            $table->integer('viajeMensual')->nullable();
+            $table->string('viajeMensual')->nullable();
             $table->string('tiempo')->nullable();
             $table->string('transporte')->nullable();
-            $table->integer('gastoMensual')->nullable();
+            $table->string('gastoMensual')->nullable();
+            $table->string('pagoMensual')->nullable();
 
-            //$table->timestamps();
+            $table->timestamps();
             
         });
     }

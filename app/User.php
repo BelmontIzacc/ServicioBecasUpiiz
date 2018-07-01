@@ -70,4 +70,16 @@ class user extends Model implements AuthenticatableContract,
     public function tipo(){
         return $this->getOriginal('tipo');
     }
+    public function vivienda(){
+        return $this->hasOne(tenement::class,'usuario_id');
+    }
+    public function gasto(){
+        return $this->hasOne(spending::class,'usuario_id');
+    }
+    public function antecedentes(){
+        return $this->hasOne(record::class,'usuario_id');
+    }
+    public function personales(){
+        return $this->hasOne(personal::class,'usuario_id');
+    }
 }

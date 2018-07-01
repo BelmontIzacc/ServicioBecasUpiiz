@@ -45,9 +45,16 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
+            //$this->validate($request,[
+                'nombre'=>'required|min:1|max:50|alpha',
+                'apellidoPaterno'=>'required|min:1|max:50|alpha',
+                'apellidoMaterno'=>'required|min:1|max:50|alpha',
+                'edad'=>'required|integer|between:0,100',
+                'boleta'=>'required|between:2010000000,2500000000|integer|unique:usuario',
+                'carrera'=>'required',
+                'grupo'=>'required|max:4',
+                'semestre'=>'required|integer',
+            //]);
         ]);
     }
 
@@ -59,14 +66,26 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+        return user::create([
+            'nombre' => $data['nombre'],
+            'apellidoPaterno'=>$data['apellidoPaterno'],
+            'apellidoMaterno'=>$data['apellidoMaterno'],
+            'edad'=>$data['edad'],
+            'boleta'=>$data['boleta'],
+            'carrera_id'=>$data['carrera'],
+            'grupo'=>$data['grupo'],
+            'semestre'=>$data['semestre'],
         ]);
     }
 
     //---------------------------------------------------------------------------------------------//
+
+    public function getRegister(){
+        $carrera = \App\carrer::lists('nombre', 'id');
+        $usuario = \App\user::all();
+        $index = 4;
+        return view('registro',['index'=>$index,'carrera'=>$carrera,'usuario'=>$usuario]);
+    }
 
     public function getLogin()
     {
@@ -183,6 +202,9 @@ class AuthController extends Controller
           session()->flash('type', 'warning');
 
           return property_exists($this, 'redirectTo') ? $this->redirectTo : '/admin';
-        } 
+        }
+        else{
+            return property_exists($this, 'redirectTo') ? $this->redirectTo : '/registro2';
+         } 
     }
 }
