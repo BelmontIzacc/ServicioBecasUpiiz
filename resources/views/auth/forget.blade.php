@@ -22,7 +22,7 @@
                         <div class="form-group input-group">
                             <input type="text" class="form-control" aria-label="Text input with dropdown button" id="info" placeholder="Ingresa Tu Boleta">
                             <div class="input-group-btn">
-                                <button type="button" class="btn btn-rounded btn-inline btn-secondary" onclick="identification(2);" >Buscar</button>
+                                <button type="button" class="btn btn-rounded btn-inline btn-secondary" onclick="identification(2);" >Buscar-_-</button>
                             </div>
                         </div>
                     </div>

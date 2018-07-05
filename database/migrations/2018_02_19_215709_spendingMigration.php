@@ -19,8 +19,8 @@ class SpendingMigration extends Migration
         $table->integer('usuario_id')->unsigned()->index();
         $table->foreign('usuario_id')->references('id')->on('usuario')->onDelete('cascade');
 
-        $table->string('ingresoMensual',30)->nullable();
-        $table->string('gastoMensual',30)->nullable();
+        $table->float('ingresoMensual',30)->nullable();
+        $table->float('gastoMensual',30)->nullable();
         $table->integer('noIntegrantes')->nullable();
         $table->integer('apoyo')->nullable();
         $table->string('trabajo')->nullable();

@@ -10,6 +10,7 @@ use PDF;
 use App\user;
 use Auth;
 use Hash;
+use Carbon\Carbon;
 
 class PDFController extends Controller
 {
@@ -19,7 +20,12 @@ class PDFController extends Controller
     }
     public function getPDF()
     {
-        $pdf = PDF::loadView('constancia');
+        $student = Auth::user();
+        //$student = user::find(2);
+        setlocale(LC_TIME, 'Spanish');
+        $date = carbon::now();
+
+        $pdf = PDF::loadView('constancia',['student'=>$student,'date'=>$date]);
         return $pdf->download('constancia.pdf');
     }
     /**
@@ -31,7 +37,10 @@ class PDFController extends Controller
     {
         $index = 4;
         $student = Auth::user();
+        //$student = user::find(2);
+        setlocale(LC_TIME, 'Spanish');
+        $date = carbon::now();
 
-        return view('vista',['index'=>$index,'student'=>$student]);
+        return view('vista',['index'=>$index,'student'=>$student,'date'=>$date]);
     }
 }

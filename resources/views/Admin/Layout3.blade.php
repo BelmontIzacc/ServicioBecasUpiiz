@@ -44,7 +44,7 @@
             		<div class="col-lg-1 col-md-1">
 				    	<div class="tbl-cell tbl-cell-photo">
 				            <a >
-				                <img src="{{asset('/Template/img/upiiz4.svg')}}" alt="" style="height:60px;width:auto;" id="modalMessagePhoto" class="round">
+				                <img src="{{asset('/Template/img/circular.svg')}}" alt="" style="height:60px;width:auto;" id="modalMessagePhoto" class="round">
 				            </a>
 				        </div>
 		            </div>

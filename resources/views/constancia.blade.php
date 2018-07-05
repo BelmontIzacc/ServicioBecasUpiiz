@@ -8,22 +8,22 @@
     width: 100%;
     height: 100%;
     background-image: Templates/img/Firma.jpg;
-	backgroun-repeat: no-repeat;
+	background-repeat: no-repeat;
   }
 </style>
-<body background="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmgeBgoWiRTTKkLA_BEAYQ3U34z3N6eZ1WJmReoaW0_HW6w59i" id="letra">
+<body background="https://i.imgur.com/skuzQSZ.jpg" id="letra" style="background-repeat: no-repeat; background-position: center center;"> 
 	<div class="col-md-12" align="Center">
 		<br>
 		<table align="Center">
 			<tr>
 				<td width="10" rowspan="4">
-					<img src="https://www.odontologos.mx/perfiles/logos/ipn-logo.jpg" width="80" height="90" align="right">
+					<img src="https://i.imgur.com/ugGjMSR.jpg" width="80" height="90" align="right">
 				</td>
 				<td width="360" align="Center">
 					<strong><FONT FACE="arial" size="14">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSTITUTO POLIT&Eacute;CNICO NACIONAL</FONT></strong>
 				</td>
 				<td width="10" rowspan="4">
-					<img src="http://www.zacatecas.ipn.mx/Conocenos/PublishingImages/logo.jpg" width="80" height="80" align="left">
+					<img src="https://i.imgur.com/Uq21MHj.jpg" width="80" height="80" align="left">
 				</td>
 			</tr>
 			<tr>
@@ -47,7 +47,7 @@
 			<tr>
 				<td colspan="3">
 					<p align="right">
-						<h5 align="Center"><font face="arial" size="13">Servicio de Registro de Becas (SRBe)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;29/06/18</font></h5>
+						<h5 align="Center"><font face="arial" size="13">Servicio de Registro de Becas (SRBe)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$date->formatLocalized('%A %d de %B %Y')}}</font></h5>
 					</p>
 				</td>
 			</tr>
@@ -56,23 +56,34 @@
 				<td align="Center" width="420">
 					<p align="justify">
 						<font face="arial" size="12">
-							Nombre:&nbsp;&nbsp;&nbsp;Olga Alejandra Beltran Silva
-							<br>
-							Boleta:&nbsp;&nbsp;&nbsp;2016670007
-							<br>
-							Programa Acad&eacute;mico:&nbsp;Ing. en Sistemas Computacionales
-							<br><br>
-							No. de Registro: 01
+									<!--Nombre:&nbsp;&nbsp;&nbsp;Olga Alejandra Beltran Silva-->
+									Nombre:&nbsp;&nbsp;&nbsp;{{$student->__toString()}}
+									<br>
+									<!--Boleta:&nbsp;&nbsp;&nbsp;2016670007-->
+									Boleta:&nbsp;&nbsp;&nbsp;{{$student->boleta}}
+									<br>
+									<!--Programa Acad&eacute;mico:&nbsp;Ing. en Sistemas Computacionales-->
+									Programa Acad&eacute;mico:&nbsp;{{$student->carrer->nombre}}
+									<br><br>
+									<!--No. de Registro: 01-->
+									No. de Registro: {{$student->id}}
 						</font>
 					</p>
 				</td>
 				<td width="30">&nbsp;</td>
 			</tr>
-			<tr>
-				<td>
-					<img src="/Templates/img/Firma.jpg" width="30" height="30">
-				</td>
-			</tr>
+					<tr>
+						<td colspan="3">
+							<p align="Center">
+								<br><br><br><br>
+								<img src="https://i.imgur.com/wEtjBJv.png" width="180" height="110">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________________
+							</p>
+							<p>
+								<h5 align="Center"><font face="arial">Firma de Validaci&oacute;n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Firma del Alumno</font></h5>
+							</p>
+						</td>
+					</tr>
 		</table>
 	</div>
 </body>

@@ -17,7 +17,7 @@ class recordSeeder extends Seeder
                 'usuario_id' => '2',
                 'beca_id' => '1',
                 'actualBeca' => 'Becalos',
-                'promActual' => '8.7',
+                'promActual' => 8.7,
                 'licenciatura' => 'Ninguna',
                 'historiaAC' => 'Regular'
             ]);

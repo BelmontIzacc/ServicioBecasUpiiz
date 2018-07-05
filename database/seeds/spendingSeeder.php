@@ -15,8 +15,8 @@ class spendingSeeder extends Seeder
         if(config('global.desarrollo')){
             DB::table('gasto')->insert([
                 'usuario_id' => '2',
-                'ingresoMensual' => '750',
-                'gastoMensual' => '10,000',
+                'ingresoMensual' => 750,
+                'gastoMensual' => 10000,
                 'noIntegrantes' => '9',
                 'apoyo' => '2',
                 'trabajo' => 'No',

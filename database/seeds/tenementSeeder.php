@@ -26,7 +26,7 @@ class tenementSeeder extends Seeder
                 'numExterior' => '46',
                 'numInterior' => 'B',
                 'colonia' => 'El paraiso',
-                'codigoPostal' => '98613',
+                'codigoPostal' => 98613,
                 'tiempo' => '15-30',
                 'pagoMensual' => '8000',
             ]);

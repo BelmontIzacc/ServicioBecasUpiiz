@@ -25,7 +25,7 @@ class RecordMigration extends Migration
             //$table->integer('Abeca_id')->unsigned()->index()->nullable();
             //$table->foreign('Abeca_id')->references('id')->on('beca')->onDelete('set null');
             $table->string('actualBeca',30);
-            $table->string('promActual',4);
+            $table->float('promActual',4);
             $table->string('licenciatura', 50)->default("sin especificar");
             $table->string('historiaAC')->nullable();
 

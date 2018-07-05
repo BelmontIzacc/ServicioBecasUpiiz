@@ -21,7 +21,7 @@ class PersonalMigration extends Migration
             $table->integer('usuario_id')->unsigned()->index();
             $table->foreign('usuario_id')->references('id')->on('usuario')->onDelete('cascade');
 
-            $table->string('enfermedades', 50)->default("sin especificar");
+            $table->string('enfermedades', 100)->default("sin especificar");
             $table->string('telCasa',50)->nullable();
             $table->string('telCelular',50)->nullable();
             $table->string('nomTutor',50)->nullable();
