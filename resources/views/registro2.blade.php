@@ -79,7 +79,7 @@
 
             @if(!$errors->isEmpty())
               <div class="alert alert-danger">
-                    <p><strong>Ooops!</strong>Errores:</p>
+                    <p><strong>Ooops!</strong></p>
                     <ul>
                       @foreach($errors->all() as $error)
                         <li>{{$error}}</li>
@@ -111,7 +111,7 @@
                       <div class="form-group">
                         <label class="col-sm-12">Promedio Actual:</label>
                         <div class="col-sm-4">
-                          {!!Form::text('promActual', null, ['class'=>'form-control', 'id'=>'promActual'])!!}
+                          {!!Form::text('promActual', null, ['class'=>'form-control','id'=>'promActual','placeholder'=>'Ej: 7.1 o 7'])!!}
                         </div>
                       </div>
 
@@ -210,14 +210,14 @@
 
                       <div class="row">
                         <label class="col-sm-4">¿Cuántas personas viven en tu casa (incluyéndote)?</label>
-                        {!!Form::text('habitantes', null, ['class'=>'col-sm-6', 'id'=>'habitantes'])!!}
+                        {!!Form::text('habitantes', null, ['class'=>'col-sm-6', 'id'=>'habitantes','placeholder'=>'Ej: 3'])!!}
                       </div>
 
                       </br>
 
                       <div class="row">
                         <label class="col-sm-4">¿Cuántas habitaciones tiene tu casa (cocina, baños, cuartos)?</label>
-                        {!!Form::text('habitaciones', null, ['class'=>'col-sm-6', 'id'=>'habitaciones'])!!}
+                        {!!Form::text('habitaciones', null, ['class'=>'col-sm-6', 'id'=>'habitaciones','placeholder'=>'Ej: 8'])!!}
                       </div>
 
                       </br>
@@ -368,7 +368,7 @@
                       <div class="row">
                         <label class="col-sm-4">¿Cuál es el ingreso mensual en tu familia (aproximadamente)?</label>
                         <div class="col-sm-6">
-                          {!!Form::text('ingresoMensual',null, ['class'=>'form-control', 'id'=>'ingresoMensual'])!!}
+                          {!!Form::text('ingresoMensual',null, ['class'=>'form-control', 'id'=>'ingresoMensual','placeholder'=>'Ej: 10000.50 o 10000'])!!}
                         </div>
                         <div class="col-sm-2"></div>
                       </div>
@@ -378,7 +378,7 @@
                       <div class="row">
                         <label class="col-sm-4">¿Cuál es el gasto mensual en tu familia (aproximadamente)?</label>
                         <div class="col-sm-6">
-                          {!!Form::text('gastoMensual',null, ['class'=>'form-control', 'id'=>'gastoMensual'])!!}
+                          {!!Form::text('gastoMensual',null, ['class'=>'form-control', 'id'=>'gastoMensual','placeholder'=>'Ej: 6000.50 o 6000'])!!}
                         </div>
                         <div class="col-sm-2"></div>
                       </div>
@@ -388,7 +388,7 @@
                       <div class="row">
                         <label class="col-sm-4">¿No. de integrantes de la familia donde vives?</label>
                         <div class="col-sm-6">
-                          {!!Form::text('noIntegrantes',null, ['class'=>'form-control', 'id'=>'noIntegrantes'])!!}
+                          {!!Form::text('noIntegrantes',null, ['class'=>'form-control', 'id'=>'noIntegrantes','placeholder'=>'Ej: 10'])!!}
                         </div>
                         <div class="col-sm-2"></div>
                       </div>
@@ -398,7 +398,7 @@
                       <div class="row">
                         <label class="col-sm-4">¿Cuántas personas aportan a los gastos de tu casa?</label>
                         <div class="col-sm-6">
-                          {!!Form::text('apoyo',null,['class'=>'form-control', 'id'=>'apoyo'])!!}
+                          {!!Form::text('apoyo',null,['class'=>'form-control', 'id'=>'apoyo','placeholder'=>'Ej: 3'])!!}
                         </div>
                         <div class="col-sm-2"></div>
                       </div>
@@ -449,7 +449,7 @@
                       <div class="row" align="Center">
                         <label class="col-sm-4">Teléfono de Casa:</label>
                         <div class="col-sm-6">
-                          {!!Form::text('telCasa', null, ['class'=>'form-control', 'id'=>'telCasa'])!!}
+                          {!!Form::text('telCasa', null, ['class'=>'form-control', 'id'=>'telCasa','placeholder'=>'Ej: 9212345    o    92 12 34 5    o    92-12-34-5'])!!}
                         </div>
                         <div class="col-sm-2"></div>
                       </div>
@@ -459,7 +459,7 @@
                       <div class="row" align="Center">
                         <label class="col-sm-4">Teléfono Celular:</label>
                         <div class="col-sm-6">
-                          {!!Form::text('telCelular', null, ['class'=>'form-control', 'id'=>'telCelular'])!!}
+                          {!!Form::text('telCelular', null, ['class'=>'form-control', 'id'=>'telCelular', 'placeholder'=>'Ej: (01)4921234567    o    4921234567    o    492 123 45 67    o    492-123-45-67'])!!}
                         </div>
                         <div class="col-sm-2"></div>
                       </div>
@@ -469,7 +469,7 @@
                       <div class="row" align="Center">
                         <label class="col-sm-4">Nombre del Tutor:</label>
                         <div class="col-sm-6">
-                          {!!Form::text('nomTutor', null, ['class'=>'form-control', 'id'=>'nomTutor'])!!}
+                          {!!Form::text('nomTutor', null, ['class'=>'form-control', 'id'=>'nomTutor', 'placeholder'=>'Nombre Completo'])!!}
                         </div>
                         <div class="col-sm-2"></div>
                       </div>
@@ -479,7 +479,7 @@
                       <div class="row" align="Center">
                         <label class="col-sm-4">Teléfono del Tutor:</label>
                         <div class="col-sm-6">
-                          {!!Form::text('telTutor', null, ['class'=>'form-control', 'id'=>'telTutor'])!!}
+                          {!!Form::text('telTutor', null, ['class'=>'form-control', 'id'=>'telTutor','placeholder'=>'Ej: (01)4921234567    o    4921234567    o    492 123 45 67    o    492-123-45-67'])!!}
                         </div>
                         <div class="col-sm-2"></div>
                       </div>

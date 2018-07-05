@@ -5,6 +5,11 @@
 @stop
 
 @section('css')
+<script type="text/javascript">
+	if(history.forward(1)){
+		history.replace(history.forward(1));
+	}
+</script>
 @stop
 
 @section('popUp')

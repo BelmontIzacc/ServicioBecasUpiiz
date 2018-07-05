@@ -35,81 +35,85 @@ class muestraController extends Controller
     {
         $index = 4;
         $student = Auth::user();
+        $antecedentes = \App\record::lists('actualBeca','id');
         $beca = \App\studentGrant::lists('nombre', 'id');
+        $beca2 = \App\studentGrant::lists('id','nombre');
         $estado = \App\state::lists('nombre', 'id');
         $municipio = \App\municipality::lists('nombre', 'id');
         $tCasa = \App\typeHouse::lists('nombre', 'id');
         $transporte = \App\transport::lists('nombre', 'id');
         $carrera = \App\carrer::lists('nombre','id');
 
-        return view('editar',['index'=>$index,'student'=>$student,'beca'=>$beca,'estado'=>$estado,'municipio'=>$municipio,'tCasa'=>$tCasa,'transporte'=>$transporte,'carrera'=>$carrera]);
+        return view('editar',['index'=>$index,'student'=>$student,'beca'=>$beca,'estado'=>$estado,'municipio'=>$municipio,'tCasa'=>$tCasa,'transporte'=>$transporte,'carrera'=>$carrera,'antecedentes'=>$antecedentes,'beca2'=>$beca2]);
     }
     public function update(Request $request)
     {
         $this->validate($request,[
+//////////////////////////////////////////////////////
+////////////////Primera Parte/////////////////////////
+//////////////////////////////////////////////////////
                 'nombre'=>'required|min:1|max:50',
                 'apellidoPaterno'=>'required|min:1|max:50|alpha',
                 'apellidoMaterno'=>'required|min:1|max:50|alpha',
                 'edad'=>'required|integer|between:0,100',
-                //'boleta'=>'required|between:2010000000,2500000000|integer|unique:usuario',
+                'boleta'=>'required|between:2010000000,2500000000|integer',
                 'carrera'=>'required',
                 'grupo'=>'required|max:4',
                 'semestre'=>'required|integer',
 //////////////////////////////////////////////////////
+////////////////Segunda Parte/////////////////////////
 //////////////////////////////////////////////////////
                 'promActual'=>'required|numeric|between:0,10',
                 'beca'=>'required',
+                'becaA' =>'required',
+                'actualBeca'=>'required_if:becaA,si',
                 'lic'=>'required',
-                'licenciatura'=>'required_if:lic,si|alpha',
-                //'licenciatura'=>'required|alpha',
-                //'becaA' =>'required',
-                //'actualBeca'=>'required_if:becaA,si',
-                //'historiaAC'=>'required|between:1,2',
+                'licenciatura'=>'required_if:lic,si',
+                'historiaAC'=>'required|between:1,2',
 //////////////////////////////////////////////////////
+////////////////Tercera Parte/////////////////////////
 //////////////////////////////////////////////////////
                 'estado'=>'required',
                 'municipio'=>'required',
                 'habitantes'=>'required|integer',
                 'habitaciones'=>'required|integer',
                 'tCasa'=>'required',
-                //'residencia'=>'required|between:1,3',
-                //'pagoMensual' =>'required_if:residencia,3',
+                'residencia'=>'required|between:1,3',
+                'pagoMensual'=>'required_if:residencia,3',
                 'calle'=>'required|max:50',
                 'colonia'=>'required|max:50',
                 'codigoPostal'=>'required|max:8',
                 'numInterior'=>'max:8',
                 'numExterior'=>'required|max:8',
-                //'tiempo'=>'required|between:1,6',
+                'tiempo'=>'required|between:1,6',
                 'transporte'=>'required',
                 'viajeMensual'=>'required_unless:municipio,58,municipio,17|integer',
-                //'transporte2'=>'required_unless:municipio,58,municipio,17',
+                'transporte2'=>'required_unless:municipio,58,municipio,17',
                 'gastoMensual2'=>'required_unless:municipio,58,municipio,17|integer',
 //////////////////////////////////////////////////////
+////////////////Cuarta Parte/////////////////////////
 //////////////////////////////////////////////////////
                 'ingresoMensual'=>'required|max:30',
                 'gastoMensual'=>'required|max:30',
                 'noIntegrantes'=>'required|integer|max:11',
                 'apoyo'=>'required|integer|max:11',
                 'trabajo'=>'required',
-                //'dependencia'=>'required|between:1,4',
+                'dependencia'=>'required|between:1,4',
 //////////////////////////////////////////////////////
+////////////////Quinta Parte/////////////////////////
 //////////////////////////////////////////////////////
                 'telCasa'=>'required',
                 'telCelular'=>'required',
                 'nomTutor'=>'required',
                 'telTutor'=>'required',
-                //'enfe'=>'required',
-                //'enfermedades'=>'required_if:enfe,si',
-                'enfermedades'=>'required',
+                'enfe'=>'required',
+                'enfermedades'=>'required_if:enfe,si',
             ]);
-        //Primera Parte
-        if($request->lic == 'no'){
-            $licenciatura = "";
-        }else{
-            $licenciatura = $request->licenciatura;
-        }
-        /*$regular = $request->historiaAC;
+////////////////Primera Parte/////////////////////////
+////////////////Segunda Parte/////////////////////////
         $bb = $request->actualBeca;
+        $es = \App\studentGrant::find($bb);
+        $regular = $request->historiaAC;
 
         if ($regular == 1) {
             $letra = "Regular";
@@ -117,21 +121,36 @@ class muestraController extends Controller
             $letra = "Irregular";
         }
 
-        $es = \App\studentGrant::find($bb);
-
-        if ($es->id==0) {
-            $es2="";
-        }else{
+        if($request->becaA=='si'){
             $es2 = $es->nombre;
+        }else{
+            $es2 = "";
         }
 
-        //Segunda Parte
+        if($request->lic == 'no'){
+            $licenciatura = "";
+        }else{
+            $licenciatura = $request->licenciatura;
+        }
+////////////////Tercera Parte/////////////////////////
+        $r = $request->residencia;
+        $pm = $request->pagoMensual;
         $dd = $request->transporte2;
         $m = $request->municipio;
         $vm = $request->viajeMensual;
         $gm = $request->gastoMensual2;
-        $r = $request->residencia;
-        $pm = $request->pagoMensual;
+
+        if ($r==1) {
+            $rr = "Permanente";
+        }elseif ($r==2) {
+            $rr = "Prestada";
+        }elseif ($r==3) {
+            $rr = "Rentada";
+        }
+
+        if($r==3){}else{
+            $pm = "";
+        }
 
         $ee = \App\transport::find($dd);
         if ($ee=="") {
@@ -143,22 +162,9 @@ class muestraController extends Controller
         if ($m == 58 || $m == 17) {
             $vm = "";
             $gm = "";
+            $ee2= "";
         }
-
-        if($r==3){
-        }else{
-            $pm = "";
-        }
-
-        if ($r==1) {
-            $rr = "Permanente";
-        }elseif ($r==2) {
-            $rr = "Prestada";
-        }elseif ($r==3) {
-            $rr = "Rentada";
-        }
-
-        //Tercera Parte
+////////////////Cuarta Parte//////////////////////////
         $d = $request->dependencia;
 
         if ($d==1) {
@@ -170,17 +176,15 @@ class muestraController extends Controller
         }elseif ($d==4) {
             $de = "Mantienes a tu familia";
         }
-
-        //Cuarta Parte
+////////////////Quinta Parte//////////////////////////
         $en = $request->enfe;
         $enn = $request->enfermedades;
 
         if ($en=="no") {
             $enn="";
-        }*/
+        }
 
         $user = user::find($request->studentId);
-
         $user->update([
                 'nombre'=>$request->nombre,
                 'apellidoPaterno'=>$request->apellidoPaterno,
@@ -194,11 +198,11 @@ class muestraController extends Controller
 
         $record = $user->antecedentes;
         $record->update([
-            'beca_id'=>$request->beca,
-            //'actualBeca'=>$request->actualBeca,
             'promActual'=>$request->promActual,
+            'beca_id'=>$request->beca,
+            'actualBeca'=>$es2,
             'licenciatura'=>$licenciatura,
-            //'historiaAC' =>$request->historiaAC,
+            'historiaAC' =>$letra,
             ]);
 
         $tenement = $user->vivienda;
@@ -208,38 +212,37 @@ class muestraController extends Controller
             'habitantes'=>$request->habitantes,
             'habitaciones'=>$request->habitaciones,
             'tipoCasa_id'=>$request->tCasa,
+            'residencia'=>$rr,
+            'pagoMensual'=>$pm,
             'calle'=>$request->calle,
             'colonia'=>$request->colonia,
             'codigoPostal'=>$request->codigoPostal,
             'numExterior'=>$request->numExterior,
             'numInterior'=>$request->numInterior,
+            'tiempo'=>$request->tiempo,
             'transporte_id'=>$request->transporte,
-            /*'transporte'=>$ee2,
+            'transporte'=>$ee2,
             'viajeMensual'=>$vm,
-            'pagoMensual'=>$pm,
             'gastoMensual'=>$gm,
-            'residencia'=>1,
-            'tiempo'=>$request->tiempo,*/
             ]);
 
         $spending = $user->gasto;
         $spending->update([
-            //'usuario_id'=>Auth::user()->id,
-            //'ingresoMensual'=>$request->ingresoMensual,
-            //'gastoMensual'=>$request->gastoMensual,
-            //'noIntegrantes'=>$request->noIntegrantes,
-            //'apoyo'=>$request->apoyo,
+            'ingresoMensual'=>$request->ingresoMensual,
+            'gastoMensual'=>$request->gastoMensual,
+            'noIntegrantes'=>$request->noIntegrantes,
+            'apoyo'=>$request->apoyo,
             'trabajo'=>$request->trabajo,
-            //'dependencia'=>$de,
+            'dependencia'=>$de,
             ]);
-        /*personal::update([
-            //'usuario_id'=>Auth::user()->id,
-            'enfermedades'=>$enn,
+        $personal = $user->personales;
+        $personal->update([
             'telCasa'=>$request->telCasa,
             'telCelular'=>$request->telCelular,
             'nomTutor'=>$request->nomTutor,
             'telTutor'=>$request->telTutor,
-            ]);*/
+            'enfermedades'=>$enn,
+            ]);
 
         session()->flash('message', 'Alumno '.$user. ' actualizado correctamente');
         session()->flash('type', 'success');

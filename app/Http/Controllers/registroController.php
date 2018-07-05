@@ -28,7 +28,7 @@ class registroController extends Controller
     }
     public function index()
     {
-        $beca = \App\studentGrant::lists('nombre', 'id');
+        $beca = \App\studentGrant::lists('nombre','id');
         $estado = \App\state::lists('nombre', 'id');
         $municipio = \App\municipality::lists('nombre', 'id');
         $tCasa = \App\typeHouse::lists('nombre', 'id');
@@ -120,11 +120,10 @@ class registroController extends Controller
         }
 
         $es = \App\studentGrant::find($bb);
-
-        if ($es->id==0) {
-            $es2="";
-        }else{
+        if($request->becaA=='si'){
             $es2 = $es->nombre;
+        }else{
+            $es2 = "";
         }
 
         //Segunda Parte

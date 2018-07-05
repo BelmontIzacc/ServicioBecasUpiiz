@@ -12,7 +12,7 @@
 
     @if(!$errors->isEmpty())
     <div class="alert alert-danger">
-          <p><strong>Ooops!</strong>Errores:</p>
+          <p><strong>Ooops!</strong></p>
           <ul>
             @foreach($errors->all() as $error)
               <li>{{$error}}</li>
@@ -68,7 +68,7 @@
 
       <div class="form-group">
         <div class="col-sm-10">
-          {!!Form::text('semestre', null, ['class'=>'form-control', 'id'=>'semestre', 'placeholder'=>'Semestre'])!!}
+          {!!Form::text('semestre', null, ['class'=>'form-control', 'id'=>'semestre', 'placeholder'=>'Semestre en el que estas (Ej: 2 o 9)'])!!}
         </div>
       </div>
 

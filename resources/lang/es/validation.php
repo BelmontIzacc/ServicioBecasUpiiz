@@ -100,9 +100,68 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'edad' => [
+            'integer' => 'El campo :attribute solo debe tener numeros enteros',
+            'between' => 'Debes ingresar una :attribute válida',
         ],
+        'boleta' => [
+            'between' => 'La :attribute no es válida',
+            'unique' => 'La :attribute ya existe',
+            'integer' => 'La :attribute solo debe tener números',
+        ],
+        'grupo' => [
+            'max' => 'El campo :attribute debe contener como máximo 4 carácteres',
+        ],
+        'semestre' => [
+            'integer' => 'El campo :attribute solo debe tener numero(s) entero(s)',
+        ],
+        'promActual' => [
+            'required' => 'El campo :attribute es obligatorio',
+            'numeric' => 'El campo :attribute debe contener solo números enteros o decimales',
+            'between' => 'En el campo :attribute no existe ese valor',
+        ],
+        'beca' => [
+            'required' => 'Debes seleccionar un tipo de :attribute a solicitar',
+        ],
+        /*
+                'lic'=>'required',
+                'licenciatura'=>'required_if:lic,si|alpha',
+                'becaA' =>'required',
+                'actualBeca'=>'required_if:becaA,si',
+                'historiaAC'=>'required|between:1,2',
+
+                'estado'=>'required',
+                'municipio'=>'required',
+                'habitantes'=>'required|integer',
+                'habitaciones'=>'required|integer',
+                'tCasa'=>'required',
+                'residencia'=>'required|between:1,3',
+                'pagoMensual' =>'required_if:residencia,3',
+                'calle'=>'required|max:50',
+                'colonia'=>'required|max:50',
+                'codigoPostal'=>'required|max:8',
+                'numInterior'=>'max:8',
+                'numExterior'=>'required|max:8',
+                'tiempo'=>'required|between:1,6',
+                'transporte'=>'required',
+                'viajeMensual'=>'required_unless:municipio,58,municipio,17|integer',
+                'transporte2'=>'required_unless:municipio,58,municipio,17',
+                'gastoMensual2'=>'required_unless:municipio,58,municipio,17|integer',
+                
+                'ingresoMensual'=>'required|max:30',
+                'gastoMensual'=>'required|max:30',
+                'noIntegrantes'=>'required|integer|max:11',
+                'apoyo'=>'required|integer|max:11',
+                'trabajo'=>'required',
+                'dependencia'=>'required|between:1,4',
+
+                'telCasa'=>'required',
+                'telCelular'=>'required',
+                'nomTutor'=>'required',
+                'telTutor'=>'required',
+                'enfe'=>'required',
+                'enfermedades'=>'required_if:enfe,si',
+        */
     ],
 
     /*
@@ -116,6 +175,9 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'promActual' => 'promedio actual',
+        'lic' => 'licenciatura',
+    ],
 
 ];

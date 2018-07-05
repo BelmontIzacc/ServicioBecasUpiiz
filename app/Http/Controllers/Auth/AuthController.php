@@ -46,9 +46,9 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             //$this->validate($request,[
-                'nombre'=>'required|min:1|max:50|alpha',
-                'apellidoPaterno'=>'required|min:1|max:50|alpha',
-                'apellidoMaterno'=>'required|min:1|max:50|alpha',
+                'nombre'=>'required|min:1|max:50',
+                'apellidoPaterno'=>'required|min:1|max:50',
+                'apellidoMaterno'=>'required|min:1|max:50',
                 'edad'=>'required|integer|between:0,100',
                 'boleta'=>'required|between:2010000000,2500000000|integer|unique:usuario',
                 'carrera'=>'required',

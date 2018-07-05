@@ -5,6 +5,13 @@
 @stop
 
 @section('css')
+<script type="text/javascript">
+  function mostrar(){
+    element = document.getElementById("content");
+    check = document.getElementById("enf");
+
+  }
+</script>
 @stop
 
 @section('popUp')
@@ -111,7 +118,7 @@
                   @if(($student->antecedentes->actualBeca)=="")
                     <div class="col-sm-12">
                         <div class="rdio rdio-primary">
-                          <input type="radio" name="becaA" value="si" id="becaA">
+                          <input type="radio" name="becaA" value="si" id="becaA" onclick="">
                           <label>Si</label> &nbsp;&nbsp;
                           <input type="radio" name="becaA" value="no" id="becaAA" checked>
                           <label>No</label>
@@ -127,12 +134,9 @@
                         </div>
                       </div>
                   @endif
-                <!--
-                  {!!Form::select('actualBeca',$beca,$student->antecedentes->actualBeca, ['class'=>'select2 form-control'])!!}
-                -->
                 </td>
                 <td align="Center">
-                  {!!Form::select('actualBeca', $beca,$student->antecedentes->studentGrant->id, ['class'=>'select2 form-control'])!!}
+                  {!!Form::select('actualBeca',$beca,0, ['class'=>'select2 form-control','placeholder'=>'Selecciona Tu Beca'])!!}
                 </td>
               </tr>
               <tr>
@@ -151,7 +155,11 @@
               </tr>
               <tr class="success">
                 <td align="Center" colspan="2">
-                  {!!Form::text('historiaAC',$student->antecedentes->historiaAC, ['class'=>'form-control', 'id'=>'historiaAC'])!!}
+                  <select name="historiaAC">
+                      <option>Selecciona una opcion</option>
+                      <option value="1">Regular</option>
+                      <option value="2">Irregular</option>
+                  </select>
                 </td>
                 <td align="Center">
                   @if(($student->antecedentes->licenciatura)=="")
@@ -230,11 +238,17 @@
                   {!!Form::select('tCasa',$tCasa,$student->vivienda->typeHouse->id, ['class'=>'select2 form-control'])!!}
                 </td>
                 <td align="Center">
-                  <label>{{$student->vivienda->residencia}}</label>
+                    <label>
+                      <select class="form-control" name="residencia">
+                            <option>Selecciona una opcion</option>
+                            <option value="1">Permanente</option>
+                            <option value="2">Prestada</option>
+                            <option value="3">Rentada</option>
+                      </select>
+                    </label>
                 </td>
                 <td align="Center">
-                  <!--{!!Form::text('pagoMensual',$student->vivienda->pagoMensual, ['class'=>'col-sm-6 form-control', 'id'=>'pagoMensual'])!!}-->
-                  <label>{{$student->vivienda->pagoMensual}}</label>
+                  {!!Form::text('pagoMensual',null, ['class'=>'col-sm-6 form-control', 'id'=>'pagoMensual'])!!}
                 </td>
                 <td align="Center" colspan="2">
                   {!!Form::text('calle',$student->vivienda->calle,['class'=>'col-sm-6 form-control', 'id'=>'calle'])!!}
@@ -284,7 +298,15 @@
               </tr>
               <tr class="success">
                 <td align="Center" colspan="2">
-                  <label>{{$student->vivienda->tiempo}}</label>
+                  <select class="form-control" name="tiempo">
+                    <option>Selecciona una Opcion</option>
+                    <option value="0-15">0 a 15 min</option>
+                    <option value="15-30">15 a 30 min</option>
+                    <option value="30-1">30 a 1 hr</option>
+                    <option value="1-1.30">1 a 1.30 hrs</option>
+                    <option value="1.30-2">1.30 a 2 hrs</option>
+                    <option value="2-+">2 a mas hrs</option>
+                  </select>
                 </td>
                 <td align="Center" colspan="2">
                   {!!Form::select('transporte', $transporte,$student->vivienda->transport->id, ['class'=>'select2 form-control'])!!}
@@ -298,13 +320,12 @@
                   <label><strong>Medio de transporte</strong></label>
                 </td>
               </tr>
-              @if($student->vivienda->municipality->id != "58" || $student->vivienda->municipality->id != "17")
               <tr class="success">
                 <td align="Center">
                 {!!Form::text('viajeMensual',$student->vivienda->viajeMensual, ['class'=>'form-control', 'id'=>'viajeMensual'])!!}
                 </td>
                 <td align="Center">
-                  <label>{{$student->vivienda->transporte}}</label>
+                  {!!Form::select('transporte2',$transporte,0, ['class'=>'select2 form-control','placeholder'=>'Selecciona una Opcion'])!!}
                 </td>
                 <td align="Center" colspan="2">
                   {!!Form::text('gastoMensual2',$student->vivienda->gastoMensual, ['class'=>'form-control', 'id'=>'gastoMensual2'])!!}
@@ -321,7 +342,6 @@
                   <label><strong>Gasto Mensual de Transporte</strong></label>
                 </td>
               </tr>
-              @endif
             </table>
           </div>
         </div>
@@ -381,7 +401,13 @@
                   @endif
                 </td>
                 <td align="Center">
-                  <label>{{$student->gasto->dependencia}}</label>
+                  <select name="dependencia">
+                    <option>Seleciona una opcion</option>
+                    <option value="1">Si, totalmente</option>
+                    <option value="2">Si, medianamente</option>
+                    <option value="3">No depende</option>
+                    <option value="4">Mantienes a tu familia</option>
+                  </select>
                 </td>
               </tr>
               <tr>
@@ -429,7 +455,28 @@
                 <td align="Center">
                   {!!Form::text('nomTutor',$student->personales->nomTutor, ['class'=>'form-control', 'id'=>'nomTutor'])!!}
                 </td>
-                <td align="Center" colspan="2">
+                <td align="Center">
+                  @if(($student->personales->enfermedades)=="")
+                    <div class="col-sm-12">
+                        <div class="rdio rdio-primary">
+                          <input type="radio" name="enfe" value="si" id="enfe">
+                          <label>Si</label> &nbsp;&nbsp;
+                          <input type="radio" name="enfe" value="no" id="enfee" checked>
+                          <label>No</label>
+                        </div>
+                      </div>
+                  @else
+                    <div class="col-sm-12">
+                        <div class="rdio rdio-primary">
+                          <input type="radio" name="enfe" value="si" id="enfe" checked>
+                          <label>Si</label> &nbsp;&nbsp;
+                          <input type="radio" name="enfe" value="no" id="enfee">
+                          <label>No</label>
+                        </div>
+                      </div>
+                  @endif
+                </td>
+                <td>
                   {!!Form::text('enfermedades',$student->personales->enfermedades, ['class'=>'col-sm-6 form-control', 'id'=>'enfermedades'])!!}
                 </td>
               </tr>
