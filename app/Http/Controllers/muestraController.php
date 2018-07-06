@@ -85,7 +85,7 @@ class muestraController extends Controller
                 'codigoPostal'=>'required|max:8',
                 'numInterior'=>'max:8',
                 'numExterior'=>'required|max:8',
-                'tiempo'=>'required|between:1,6',
+                'tiempo'=>'required|between:1,11',
                 'transporte'=>'required',
                 'viajeMensual'=>'required_unless:municipio,58,municipio,17|integer',
                 'transporte2'=>'required_unless:municipio,58,municipio,17',

@@ -79,10 +79,10 @@
 				<table align="Center" width="1000">
 					<tr>
 						<td align="Center">
-							<a class="btn-primary btn-lg bs" type="button" style="font-size: 15pt" href="/descargarPDF">Descargar</a>
+							<a class="btn-primary btn-lg bs" type="button" style="font-size: 15pt" href="{{asset('/descargarPDF')}}">Descargar</a>
 						</td>
 						<td align="Center">
-							<a class="btn-primary btn-lg bs" type="button" style="font-size: 15pt" href="/">Finalizar</a>
+							<a class="btn-primary btn-lg bs" type="button" style="font-size: 15pt" href="{{asset('/')}}">Finalizar</a>
 						</td>
 					</tr>
 				</table>
@@ -94,12 +94,10 @@
 @stop
 
 @section('subHead')
-
 @stop
 
 @section('content')
 @stop
 
 @section('scripts')
-
 @stop

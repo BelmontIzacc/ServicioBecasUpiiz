@@ -27,7 +27,7 @@
             <div class="col-sm-3 col-md-3 col-xs-2">
                 <section>
                     <div>
-                        <img src="/Templates/img/IPN.png" width="50" height="50">
+                        <img src="{{asset('/Templates/img/IPN.png')}}" width="50" height="50">
                     </div>
                 </section>
             </div>
@@ -42,7 +42,7 @@
             <div class="col-sm-3 col-md-3 col-xs-2">
                 <section>
                     <div>
-                        <img src="/Templates/img/6.png" width="50" height="50">
+                        <img src="{{asset('/Templates/img/6.png')}}" width="50" height="50">
                     </div>
                 </section>
             </div>

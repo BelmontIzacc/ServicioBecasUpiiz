@@ -26,7 +26,7 @@ $index == 4;
     	@if($valor == 2)
     		disabled=""
     	@elseif($valor == 1)
-        href="/registro"
+        href="{{asset('/registro')}}"
     	@endif 
     	>Registro
       </a>
@@ -37,10 +37,10 @@ $index == 4;
         <hr>
           <div class="col-md-12">
             <div class="col-md-6">
-              <a href="/creditos" class="muted pull-left">Creditos</a>
+              <a href="{{asset('/creditos')}}" class="muted pull-left">Creditos</a>
             </div>
             <div class="col-md-6">
-              <a href="/login" class="muted pull-right">Administrador</a>
+              <a href="{{asset('/login')}}" class="muted pull-right">Administrador</a>
             </div>
           </div>
 </div>

@@ -101,67 +101,148 @@ return [
 
     'custom' => [
         'edad' => [
-            'integer' => 'El campo :attribute solo debe tener numeros enteros',
-            'between' => 'Debes ingresar una :attribute válida',
+            'integer' => 'El campo :attribute solo debe tener numeros enteros.',
+            'between' => 'Debes ingresar una :attribute válida.',
         ],
         'boleta' => [
-            'between' => 'La :attribute no es válida',
-            'unique' => 'La :attribute ya existe',
-            'integer' => 'La :attribute solo debe tener números',
+            'between' => 'La :attribute no es válida.',
+            'unique' => 'La :attribute ya existe.',
+            'integer' => 'La :attribute solo debe tener números.',
         ],
         'grupo' => [
-            'max' => 'El campo :attribute debe contener como máximo 4 carácteres',
+            'max' => 'El campo :attribute debe contener como máximo 4 carácteres.',
         ],
         'semestre' => [
-            'integer' => 'El campo :attribute solo debe tener numero(s) entero(s)',
+            'integer' => 'El campo :attribute solo debe tener numero(s) entero(s).',
         ],
         'promActual' => [
-            'required' => 'El campo :attribute es obligatorio',
-            'numeric' => 'El campo :attribute debe contener solo números enteros o decimales',
-            'between' => 'En el campo :attribute no existe ese valor',
+            'required' => 'El campo :attribute es obligatorio. En la parte 1.',
+            'numeric' => 'El campo :attribute debe contener solo números enteros o decimales. En la parte 1.',
+            'between' => 'En el campo :attribute no existe ese valor. En la parte 1.',
         ],
         'beca' => [
-            'required' => 'Debes seleccionar un tipo de :attribute a solicitar',
+            'required' => 'Debes seleccionar una opcion de :attribute a solicitar. En la parte 1.',
         ],
-        /*
-                'lic'=>'required',
-                'licenciatura'=>'required_if:lic,si|alpha',
-                'becaA' =>'required',
-                'actualBeca'=>'required_if:becaA,si',
-                'historiaAC'=>'required|between:1,2',
-
-                'estado'=>'required',
-                'municipio'=>'required',
-                'habitantes'=>'required|integer',
-                'habitaciones'=>'required|integer',
-                'tCasa'=>'required',
-                'residencia'=>'required|between:1,3',
-                'pagoMensual' =>'required_if:residencia,3',
-                'calle'=>'required|max:50',
-                'colonia'=>'required|max:50',
-                'codigoPostal'=>'required|max:8',
-                'numInterior'=>'max:8',
-                'numExterior'=>'required|max:8',
-                'tiempo'=>'required|between:1,6',
-                'transporte'=>'required',
-                'viajeMensual'=>'required_unless:municipio,58,municipio,17|integer',
-                'transporte2'=>'required_unless:municipio,58,municipio,17',
-                'gastoMensual2'=>'required_unless:municipio,58,municipio,17|integer',
-                
-                'ingresoMensual'=>'required|max:30',
-                'gastoMensual'=>'required|max:30',
-                'noIntegrantes'=>'required|integer|max:11',
-                'apoyo'=>'required|integer|max:11',
-                'trabajo'=>'required',
-                'dependencia'=>'required|between:1,4',
-
-                'telCasa'=>'required',
-                'telCelular'=>'required',
-                'nomTutor'=>'required',
-                'telTutor'=>'required',
-                'enfe'=>'required',
-                'enfermedades'=>'required_if:enfe,si',
-        */
+        'lic' => [
+            'required' => 'Falta elegir una opcion en :attribute terminada. En la parte 1.',
+        ],
+        'licenciatura' => [
+            'required_if' => 'Falta escribir la :attribute terminada. En la parte 1.',
+        ],
+        'becaA' => [
+            'required' => 'Debes seleccionar una opcion de :attribute. En la parte 1.',
+        ],
+        'actualBeca' => [
+            'required_if' => 'Debes seleccionar una opcion del campo :attribute si ya cuentas con una. En la parte 1.',
+        ],
+        'historiaAC' => [
+            'required' => 'Debes elegir una opcion en :attribute. En la parte 1.',
+            'between' => 'Debes elegir una de las dos opciones en :attribute. En la parte 1.',
+        ],
+        'estado' => [
+            'required' => 'Debes seleccionar la opcion :attribute de donde vienes. En la parte 2.',
+        ],
+        'municipio' => [
+            'required' => 'Debes seleccionar la opcion :attribute de donde vienes. En la parte 2.',
+        ],
+        'habitantes' => [
+            'required' => 'El campo de cuantas personas viven en tu casa esta vacío. En la parte 2.',
+            'integer' => 'El campo de cuantas personas viven en tu casa debe tener solo números enteros. En la parte 2.',
+        ],
+        'habitaciones' => [
+            'required' => 'El campo de cuantas :attribute hay en tu casa esta vacío. En la parte 2.',
+            'integer' => 'El campo de cuantas :attribute hay en tu casa debe tener solo números enteros. En la parte 2.',
+        ],
+        'tCasa' => [
+            'required' => 'Debes seleccionar una opcion de :attribute donde habita tu familia. En la parte 2.',
+        ],
+        'residencia' => [
+            'required' => 'Debes seleccionar una opcion en la :attribute mientras estudias. En la parte 2.',
+            'between' => 'Te falta seleccionar una opcion en el campo :attribute mientras estudias. En la parte 2.',
+        ],
+        'pagoMensual' => [
+            'required_if' => 'Falta llenar el campo de :attribute, porque la residencia es rentada. En la parte 2.',
+        ],
+        'calle' => [
+            'required' => 'Te falta llenar el campo :attribute. En la parte 2.',
+            'max' => 'El campo :attribute no acepta más de 50 dígitos. En la parte 2.',
+        ],
+        'colonia' => [
+            'required' => 'Te falta llenar el campo :attribute. En la parte 2.',
+            'max' => 'El campo :attribute no acepta más de 50 dígitos. En la parte 2.',
+        ],
+        'codigoPostal' => [
+            'required' => 'Te falta llenar el campo :attribute. En la parte 2.',
+            'max' => 'El campo :attribute no acepta más de 8 dígitos. En la parte 2.',
+        ],
+        'numInterior' => [
+            'max' => 'El campo :attribute no acepta más de 8 dígitos. En la parte 2.',
+        ],
+        'numExterior' => [
+            'required' => 'Debes llenar el campo :attribute. En la parte 2.',
+            'max' => 'El campo :attribute no acepta más de 8 dígitos. En la parte 2.',
+        ],
+        'tiempo' => [
+            'required' => 'Debes seleccionar una opcion en :attribute en llegar. En la parte 2.',
+            'between' => 'Falta seleccionar una opcion válida en :attribute en llegar. En la parte 2.',
+        ],
+        'transporte' => [
+            'required' => 'Debes seleccionar una opcion en medio de :attribute. En la parte 2.',
+        ],
+        'viajeMensual' => [
+            'required_unless' => 'Falta llenar el campo de veces :attribute por ser foráneo. En la parte 2.',
+            'integer' => 'El campo veces :attribute debe llenarse con sólo números enteros. En la parte 2.',
+        ],
+        'transporte2' => [
+            'required_unless' => 'Debes seleccionar una opcion de medio de :attribute por ser foráneo. En la parte 2.',
+        ],
+        'gastoMensual2' => [
+            'required_unless' => 'Falta llenar el campo :attribute por ser foráneo. En la parte 2.',
+            'integer' => 'El campo veces :attribute debe llenarse con sólo números enteros. En la parte 2.',
+        ],
+        'ingresoMensual' => [
+            'required' => 'Te falta llenar el campo :attribute. En la parte 3.',
+            'max' => 'El campo :attribute no acepta más de 30 dígitos. En la parte 3.',
+        ],
+        'gastoMensual' => [
+            'required' => 'Te falta llenar el campo :attribute. En la parte 3.',
+            'max' => 'El campo :attribute no acepta más de 30 dígitos. En la parte 3.',
+        ],
+        'noIntegrantes' => [
+            'required' => 'Te falta llenar el campo :attribute en tu familia. En la parte 3.',
+            'integer' => 'En :attribute en tu familia debe llenarse sólo con números enteros. En la parte 3.',
+            'max' => 'El campo :attribute no acepta más de 11 dígitos. En la parte 3.',
+        ],
+        'apoyo' => [
+            'required' => 'Te falta llenar el campo :attribute en tu familia. En la parte 3.',
+            'integer' => 'En :attribute en tu familia debe llenarse sólo con números enteros. En la parte 3.',
+            'max' => 'El campo :attribute no acepta más de 11 dígitos. En la parte 3.',
+        ],
+        'trabajo' => [
+            'required' => 'Falta seleccionar una opcion en si :attribute. En la parte 3.',
+        ],
+        'dependencia' => [
+            'required' => 'Falta elegir una opcion en si dependes de tus padres. En la parte 3.',
+            'between' => 'Debes elegir solo una de las opciones que te dan en :attribute de tus padres. En la parte 3.',
+        ],
+        'telCasa' => [
+            'required' => 'El campo :attribute está vacío. En la parte 4.',
+        ],
+        'telCelular' => [
+            'required' => 'El campo :attribute está vacío. En la parte 4.',
+        ],
+        'nomTutor' => [
+            'required' => 'El campo :attribute está vacío. En la parte 4.',
+        ],
+        'telTutor' => [
+            'required' => 'El campo :attribute está vacío. En la parte 4.',
+        ],
+        'enfe' => [
+            'required' => 'No se a seleccionado la opcion de :attribute. En la parte 4.',
+        ],
+        'enfermedades' => [
+            'required_if' => 'Falta llenar el campo de cuales :attribute. En la parte 4.',
+        ],
     ],
 
     /*
@@ -178,6 +259,23 @@ return [
     'attributes' => [
         'promActual' => 'promedio actual',
         'lic' => 'licenciatura',
+        'becaA' => 'beca actual',
+        'historiaAC' => 'historia académica',
+        'tCasa' => 'tipo de casa',
+        'pagoMensual' => 'pago mensual',
+        'codigoPostal' => 'código postal',
+        'numInterior' => 'número de interior',
+        'numExterior' => 'número de exterior',
+        'transporte2' => 'transporte',
+        'gastoMensual2' => 'gasto mensual',
+        'ingresoMensual' => 'ingreso mensual',
+        'gastoMensual' => 'gasto mensual',
+        'noIntegrantes' => 'número de integrantes',
+        'telCasa' => 'teléfono de casa',
+        'telCelular' => 'teléfono celular',
+        'nomTutor' => 'nombre del tutor',
+        'telTutor' => 'teléfono del tutor',
+        'enfe' => 'enfermedades'
     ],
 
 ];

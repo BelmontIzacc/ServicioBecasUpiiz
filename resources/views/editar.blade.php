@@ -1,17 +1,10 @@
 @extends('layout')
 
 @section('title')
-<title>Inicio Servicio Becas</title>
+<title>Edicion Servicio Becas</title>
 @stop
 
 @section('css')
-<script type="text/javascript">
-  function mostrar(){
-    element = document.getElementById("content");
-    check = document.getElementById("enf");
-
-  }
-</script>
 @stop
 
 @section('popUp')
@@ -262,7 +255,7 @@
                   <label><strong>Residencia</strong></label>
                 </td>
                 <td align="Center">
-                  <label><strong>Pago Mensual</strong></label>
+                  <label><strong>Pago Mensual de Renta</strong></label>
                 </td>
                 <td align="Center">
                   <label><strong>Calle</strong></label>
@@ -300,12 +293,12 @@
                 <td align="Center" colspan="2">
                   <select class="form-control" name="tiempo">
                     <option>Selecciona una Opcion</option>
-                    <option value="0-15">0 a 15 min</option>
-                    <option value="15-30">15 a 30 min</option>
-                    <option value="30-1">30 a 1 hr</option>
-                    <option value="1-1.30">1 a 1.30 hrs</option>
-                    <option value="1.30-2">1.30 a 2 hrs</option>
-                    <option value="2-+">2 a mas hrs</option>
+                    <option value="0 - 0.15">0 a 15 min</option>
+                    <option value="0.15 - 0.30">15 a 30 min</option>
+                    <option value="0.30 - 1">30 a 1 hr</option>
+                    <option value="1 - 1.30">1 a 1.30 hrs</option>
+                    <option value="1.30 - 2">1.30 a 2 hrs</option>
+                    <option value="2 - +">2 a mas hrs</option>
                   </select>
                 </td>
                 <td align="Center" colspan="2">
@@ -333,13 +326,13 @@
               </tr>
               <tr>
                 <td align="Center">
-                  <label><strong>Veces Viaje Mensual</strong></label>
+                  <label><strong>Veces Viaje Mensual como For&aacute;neo</strong></label>
                 </td>
                 <td align="Center">
-                  <label><strong>Transporte</strong></label>
+                  <label><strong>Transporte como For&aacute;neo</strong></label>
                 </td>
                 <td align="Center" colspan="2">
-                  <label><strong>Gasto Mensual de Transporte</strong></label>
+                  <label><strong>Gasto Mensual de Transporte como For&aacute;neo</strong></label>
                 </td>
               </tr>
             </table>
@@ -497,7 +490,7 @@
           <div class="col-md-12">
             <div class="col-md-12" align="Center">
               <input type="hidden" value="{{$student->id}}" id="studentId" name="studentId">
-              <button class="btn-warning btn-lg bs" type="submit" style="font-size: 15pt">Actualizar</button>
+              <button class="btn-primary btn-lg bs" type="submit" style="font-size: 14pt; width: 190px">Actualizar</button>
             </div>
           </div>
         </div>
@@ -512,12 +505,10 @@
 @stop
 
 @section('subHead')
-
 @stop
 
 @section('content')
 @stop
 
 @section('scripts')
-
 @stop

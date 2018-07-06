@@ -1,15 +1,10 @@
 @extends('layout')
 
 @section('title')
-<title>Inicio Servicio Becas</title>
+<title>Muestra Servicio Becas</title>
 @stop
 
 @section('css')
-<script type="text/javascript">
-	if(history.forward(1)){
-		history.replace(history.forward(1));
-	}
-</script>
 @stop
 
 @section('popUp')
@@ -101,13 +96,21 @@
 									<label>{{$student->antecedentes->studentGrant->nombre}}</label>
 								</td>
 								<td align="Center">
-									<label>{{$student->antecedentes->actualBeca}}</label>
+									@if(($student->antecedentes->actualBeca)=="")
+										<label>Ninguna</label>
+									@else
+										<label>{{$student->antecedentes->actualBeca}}</label>
+									@endif
 								</td>
 								<td align="Center" colspan="2">
 									<label>{{$student->antecedentes->historiaAC}}</label>
 								</td>
 								<td align="Center">
-									<label>{{$student->antecedentes->licenciatura}}</label>
+									@if(($student->antecedentes->licenciatura)=="")
+										<label>Ninguna</label>
+									@else
+										<label>{{$student->antecedentes->licenciatura}}</label>
+									@endif
 								</td>
 							</tr>
 							<tr>
@@ -170,7 +173,11 @@
 									<label>{{$student->vivienda->residencia}}</label>
 								</td>
 								<td align="Center">
-									<label>{{$student->vivienda->pagoMensual}}</label>
+									@if(($student->vivienda->pagoMensual)=="")
+										<label>Ninguno</label>
+									@else
+										<label>{{$student->vivienda->pagoMensual}}</label>
+									@endif
 								</td>
 								<td align="Center" colspan="2">
 									<label>{{$student->vivienda->calle}}</label>
@@ -184,7 +191,7 @@
 									<label><strong>Residencia</strong></label>
 								</td>
 								<td align="Center">
-									<label><strong>Pago Mensual</strong></label>
+									<label><strong>Pago Mensual de Renta</strong></label>
 								</td>
 								<td align="Center">
 									<label><strong>Calle</strong></label>
@@ -198,7 +205,11 @@
 									<label>{{$student->vivienda->codigoPostal}}</label>
 								</td>
 								<td align="Center">
-									<label>{{$student->vivienda->numInterior}}</label>
+									@if(($student->vivienda->numInterior)=="")
+										<label>Ninguno</label>
+									@else
+										<label>{{$student->vivienda->numInterior}}</label>
+									@endif
 								</td>
 								<td align="Center" colspan="2">
 									<label>{{$student->vivienda->numExterior}}</label>
@@ -220,7 +231,7 @@
 							</tr>
 							<tr class="success">
 								<td align="Center" colspan="2">
-									<label>{{$student->vivienda->tiempo}}</label>
+									<label>{{$student->vivienda->tiempo}} hrs</label>
 								</td>
 								<td align="Center" colspan="2">
 									<label>{{$student->vivienda->transport->nombre}}</label>
@@ -236,24 +247,36 @@
 							</tr>
 							<tr class="success">
 								<td align="Center">
-									<label>{{$student->vivienda->viajeMensual}}</label>
+									@if((($student->vivienda->municipality->id)==17) || (($student->vivienda->municipality->id)==58))
+										<label>Ninguno</label>
+									@else
+										<label>{{$student->vivienda->viajeMensual}}</label>
+									@endif
 								</td>
 								<td align="Center">
-									<label>{{$student->vivienda->transporte}}</label>
+									@if((($student->vivienda->municipality->id)==17) || (($student->vivienda->municipality->id)==58))
+										<label>Ninguno</label>
+									@else
+										<label>{{$student->vivienda->transporte}}</label>
+									@endif
 								</td>
 								<td align="Center" colspan="2">
-									<label>{{$student->vivienda->gastoMensual}}</label>
+									@if((($student->vivienda->municipality->id)==17) || (($student->vivienda->municipality->id)==58))
+										<label>Ninguno</label>
+									@else
+										<label>{{$student->vivienda->gastoMensual}}</label>
+									@endif
 								</td>
 							</tr>
 							<tr>
 								<td align="Center">
-									<label><strong>Veces Viaje Mensual</strong></label>
+									<label><strong>Veces Viaje Mensual como For&aacute;neo</strong></label>
 								</td>
 								<td align="Center">
-									<label><strong>Transporte</strong></label>
+									<label><strong>Transporte como For&aacute;neo</strong></label>
 								</td>
 								<td align="Center" colspan="2">
-									<label><strong>Gasto Mensual de Transporte</strong></label>
+									<label><strong>Gasto Mensual de Transporte como For&aacute;neo</strong></label>
 								</td>
 							</tr>
 						</table>
@@ -341,7 +364,11 @@
 									<label>{{$student->personales->nomTutor}}</label>
 								</td>
 								<td align="Center" colspan="2">
-									<label>{{$student->personales->enfermedades}}</label>
+									@if(($student->personales->enfermedades)=="")
+										<label>Ninguna</label>
+									@else
+										<label>{{$student->personales->enfermedades}}</label>
+									@endif
 								</td>
 							</tr>
 							<tr>
@@ -362,10 +389,10 @@
 						<table align="Center" width="700">
 							<tr>
 								<td class="col-md-6" align="left">
-									<a class="btn-danger btn-lg bs" type="button" style="font-size: 15pt" href="/editar">Editar</a>
+									<a class="btn-primary btn-lg bs" type="button" style="font-size: 15pt" href="{{asset('/editar')}}">Editar</a>
 								</td>
 								<td class="col-md-6" align="right">
-									<a class="btn-primary btn-lg bs" type="button" style="font-size: 15pt" href="/muestraPDF">Confirmar</a>
+									<a class="btn-primary btn-lg bs" type="button" style="font-size: 15pt" href="{{asset('/muestraPDF')}}">Confirmar</a>
 								</td>
 							</tr>
 						</table>
@@ -381,12 +408,10 @@
 @stop
 
 @section('subHead')
-
 @stop
 
 @section('content')
 @stop
 
 @section('scripts')
-
 @stop

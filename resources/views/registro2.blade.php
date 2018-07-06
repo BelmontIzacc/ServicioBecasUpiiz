@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-<title>Inicio Servicio Becas</title>
+<title>Registro Servicio Becas</title>
 @stop
 
 @section('css')
@@ -295,12 +295,12 @@
                         <div class="col-sm-4">
                           <select class="form-control" name="tiempo">
                             <option>Selecciona una Opcion</option>
-                            <option value="0-15">0 a 15 min</option>
-                            <option value="15-30">15 a 30 min</option>
-                            <option value="30-1">30 a 1 hr</option>
-                            <option value="1-1.30">1 a 1.30 hrs</option>
-                            <option value="1.30-2">1.30 a 2 hrs</option>
-                            <option value="2-+">2 a mas hrs</option>
+                            <option value="0 - 0.15">0 a 15 min</option>
+                            <option value="0.15 - 0.30">15 a 30 min</option>
+                            <option value="0.30 - 1">30 a 1 hr</option>
+                            <option value="1 - 1.30">1 a 1.30 hrs</option>
+                            <option value="1.30 - 2">1.30 a 2 hrs</option>
+                            <option value="2 - +">2 a mas hrs</option>
                           </select>
                         </div>
                       </div>
@@ -513,15 +513,15 @@
                       </br>
                       
                         <div class="col-sm-12" align="Center">
-                          <button type="submit"> Aceptar</button>
+                          <button type="submit" class="btn-primary btn-lg bs" style="font-size: 11pt; width: 200px">Finalizar</button>
                         </div>
                 </div>
                 <!--Fin Parte 4-->
                 </div><!-- /tab-content -->
 
                 <ul class="pager wizard">
-                  <li class="previous"><a>Previous</a></li>
-                  <li class="next" id="next" onclick="finalizar();"><a>Next</a></li>
+                  <li class="previous"><a>Anterior</a></li>
+                  <li class="next" id="next" onclick="finalizar();"><a>Siguiente</a></li>
                 </ul>
 
               </div><!--/progressWizard-->
@@ -533,35 +533,33 @@
 @stop
 
 @section('subHead')
-
 @stop
 
 @section('content')
-
 @stop
 
 @section('scripts')
-  <script src="/Templates/js/jPushMenu.js"></script> 
-  <script src="/Templates/js/side-chats.js"></script>
-  <script src="/Templates/js/jquery-2.1.0.js"></script>
-  <script src="/Templates/js/bootstrap.min.js"></script>
-  <script src="/Templates/js/common-script.js"></script>
-  <script src="/Templates/js/jquery.slimscroll.min.js"></script>
-  <script type="text/javascript"  src="/Templates/plugins/toggle-switch/toggles.min.js"></script> 
-  <script src="/Templates/plugins/checkbox/zepto.js"></script>
-  <script src="/Templates/plugins/checkbox/icheck.js"></script>
-  <script src="/Templates/js/icheck-init.js"></script>
-  <script type="text/javascript" src="/Templates/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script> 
-  <script type="text/javascript" src="/Templates/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script> 
-  <script type="text/javascript" src="/Templates/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script> 
-  <script type="text/javascript" src="/Templates/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js"></script> 
-  <script type="text/javascript" src="/Templates/js/form-components.js"></script> 
-  <script type="text/javascript" src="/Templates/plugins/input-mask/jquery.inputmask.min.js"></script> 
-  <script type="text/javascript" src="/Templates/plugins/input-mask/demo-mask.js"></script> 
-  <script type="text/javascript" src="/Templates/plugins/bootstrap-fileupload/bootstrap-fileupload.min.js"></script> 
-  <script type="text/javascript" src="/Templatse/plugins/dropzone/dropzone.min.js"></script> 
-  <script type="text/javascript" src="/Templates/plugins/ckeditor/ckeditor.js"></script>
-  <script src="/Templates/plugins/validation/parsley.min.js"></script>
+  <script src="{{asset('/Templates/js/jPushMenu.js')}}"></script> 
+  <script src="{{asset('/Templates/js/side-chats.js')}}"></script>
+  <script src="{{asset('/Templates/js/jquery-2.1.0.js')}}"></script>
+  <script src="{{asset('/Templates/js/bootstrap.min.js')}}"></script>
+  <script src="{{asset('/Templates/js/common-script.js')}}"></script>
+  <script src="{{asset('/Templates/js/jquery.slimscroll.min.js')}}"></script>
+  <script type="text/javascript"  src="{{asset('/Templates/plugins/toggle-switch/toggles.min.js')}}"></script> 
+  <script src="{{asset('/Templates/plugins/checkbox/zepto.js')}}"></script>
+  <script src="{{asset('/Templates/plugins/checkbox/icheck.js')}}"></script>
+  <script src="{{asset('/Templates/js/icheck-init.js')}}"></script>
+  <script type="text/javascript" src="{{asset('/Templates/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script> 
+  <script type="text/javascript" src="{{asset('/Templates/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js')}}"></script> 
+  <script type="text/javascript" src="{{asset('/Templates/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js')}}"></script> 
+  <script type="text/javascript" src="{{asset('/Templates/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js')}}"></script> 
+  <script type="text/javascript" src="{{asset('/Templates/js/form-components.js')}}"></script> 
+  <script type="text/javascript" src="{{asset('/Templates/plugins/input-mask/jquery.inputmask.min.js')}}"></script> 
+  <script type="text/javascript" src="{{asset('/Templates/plugins/input-mask/demo-mask.js')}}"></script> 
+  <script type="text/javascript" src="{{asset('/Templates/plugins/bootstrap-fileupload/bootstrap-fileupload.min.js')}}"></script> 
+  <script type="text/javascript" src="{{asset('/Templatse/plugins/dropzone/dropzone.min.js')}}"></script> 
+  <script type="text/javascript" src="{{asset('/Templates/plugins/ckeditor/ckeditor.js')}}"></script>
+  <script src="{{asset('/Templates/plugins/validation/parsley.min.js')}}"></script>
   <script type="text/javascript">
     $('.next').click(function(){
       $('.nav-pills > .active').next('li').find('a').trigger('click');

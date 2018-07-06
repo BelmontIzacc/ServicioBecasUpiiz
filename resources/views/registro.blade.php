@@ -21,7 +21,7 @@
     </div>
     @endif
 
-    <form action="/registro" role="form" method="POST" class="form-horizontal">
+    <form action="{{asset('/registro')}}" role="form" method="POST" class="form-horizontal">
     {{csrf_field()}}
       <div class="form-group">
         <div class="col-sm-10">

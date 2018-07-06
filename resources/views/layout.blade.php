@@ -9,9 +9,9 @@
 
 	@yield('css')
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-            <link href="/Templates/css/font-awesome.css" rel="stylesheet" type="text/css" />
-            <link href="/Templates/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-            <link href="/Templates/css/admin.css" rel="stylesheet" type="text/css" />
+            <link href="{{asset('/Templates/css/font-awesome.css')}}" rel="stylesheet" type="text/css" />
+            <link href="{{asset('/Templates/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+            <link href="{{asset('/Templates/css/admin.css')}}" rel="stylesheet" type="text/css" />
 </head>
 
 <body class="horizontal-navigation">
@@ -26,7 +26,7 @@
             <div class="col-lg-3">
                 <section>
                     <div>
-                        <img src="/Templates/img/IPN.png" width="50" height="50">
+                        <img src="{{asset('/Templates/img/IPN.png')}}" width="50" height="50">
                     </div>
                 </section>
             </div>
@@ -41,7 +41,7 @@
             <div class="col-lg-3">
                 <section>
                     <div>
-                        <img src="/Templates/img/6.png" width="40" height="50">
+                        <img src="{{asset('/Templates/img/6.png')}}" width="40" height="50">
                     </div>
                 </section>
             </div>
