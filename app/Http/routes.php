@@ -18,6 +18,11 @@ Route::get('/login', 'Auth\AuthController@getLogin');
 Route::post('/login', 'Auth\AuthController@postLogin');
 //-----------------------------------------------------------------------------------//
 Route::get('/admin', 'adminController@index');
+
+Route::get('/admin/search','adminController@buscarRegistros');
+Route::post('/admin/search','adminController@getRegistros');
+Route::post('/admin/search/{variable}','adminController@chedkPasswordDeleteUser');
+
 Route::post('/admin/Date', 'adminController@store');
 Route::post('/admin/{variable}', 'adminController@chedkPasswordReset');
 Route::get('/admin/config','adminController@configIndex');
@@ -31,7 +36,6 @@ Route::get('/admin/eliminarAll','adminController@eliminarRegistros');
 // Password reset link request routes...
 Route::get('/password/email', 'Auth\PasswordController@getEmail');
 Route::post('/password/email', 'Auth\PasswordController@postEmail');
-
 // Password reset routes...
 Route::get('/password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('/password/reset', 'Auth\PasswordController@postReset');

@@ -68,10 +68,6 @@
 
    <header class="site-header">
 	    <div class="container-fluid">
-	        
-	        <button class="hamburger hamburger--htla">
-	            <span>toggle menu</span>
-	        </button>
 	        <div class="site-header-content">
 	            <div class="site-header-content-in">
 
@@ -87,14 +83,12 @@
 	                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd-user-menu">
 	                            <a class="dropdown-item" href="{{asset('/person/profile/1')}}"><span class="font-icon glyphicon glyphicon-user"></span>Perfil</a>
 	                            <a class="dropdown-item" href="{{asset('/admin/config')}}"><span class="font-icon glyphicon glyphicon-cog"></span>Configuración</a>
+	                            <a class="dropdown-item" href="{{asset('/admin/search')}}"><span class="font-icon font-icon-eye"></span>Buscar</a>
 	                            <div class="dropdown-divider"></div>
+	                            <a class="dropdown-item" href="{{asset('/admin')}}"><span class="font-icon font-icon-list-square"></span>Inicio</a>
 	                            <a class="dropdown-item" href="{{asset('/logout')}}"><span class="font-icon glyphicon glyphicon-log-out"></span>Salir</a>
 	                        </div>
 	                    </div>
-	
-	                    <button type="button" class="burger-right">
-	                        <i class="font-icon-menu-addl"></i>
-	                    </button>
 	                </div><!--.site-header-shown-->
 	            </div><!--site-header-content-in-->
 	        </div><!--.site-header-content-->

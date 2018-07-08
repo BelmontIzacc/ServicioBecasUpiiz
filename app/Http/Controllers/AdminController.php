@@ -278,6 +278,100 @@ class AdminController extends Controller
         }    
     }
 
+    public function buscarRegistros()
+    {
+        $index = 5;
+        return view('Admin.Buscar',[
+            'index' => $index,
+        ]); 
+    }
+
+    public function chedkPasswordDeleteUser(Request $request, $variable){
+        $this->validate($request, [
+            'clave' => 'required',
+        ]);
+            
+        if(Hash::check($request->clave, Auth::user()->password)){
+            $index = 5;
+
+            $personal = \App\personal::where('usuario_id',$variable);
+            $personal->delete();
+
+            $record = \App\record::where('usuario_id',$variable);
+            $record->delete();
+              
+            $tenement = \App\tenement::where('usuario_id',$variable);
+            $tenement->delete();
+            
+            $spending = \App\spending::where('usuario_id',$variable);
+            $spending->delete();
+
+            $user = \App\user::where('id',$variable);
+            $user->delete();
+
+            session()->flash('message', 'Se a eliminado el registro con exito');
+            session()->flash('type', 'success');
+
+        return view('Admin.Buscar',[
+            'index' => $index,
+        ]);
+
+        } else{
+            return redirect('/admin/search')
+            ->withErrors([
+                $request->clave => 'No coinciden las contraseñas D:',
+            ]);
+        }
+    }
+
+    public function getRegistros(Request $request){
+        $index = 5;
+
+        switch($request->opc){
+            case 1:
+                $this->validate($request, [
+                    'busqueda' => 'required'
+                ]);
+
+                $user = \App\User::where('nombre','like','%'.$request->busqueda.'%')->where('tipo', 2)->get();
+
+                if(count($user) == 0){
+
+                    $user = \App\User::where('apellidoPaterno','like','%'.$request->busqueda.'%')->where('tipo', 2)->get();
+                    
+                    if(count($user) == 0){
+
+                    $user = \App\User::where('apellidoMaterno','like','%'.$request->busqueda.'%')->where('tipo', 2)->get();
+                    
+                    $residuo = explode(" ",$request->busqueda);
+
+                        if(count($residuo) > 1 && count($residuo) <= 2){
+                             $user = \App\User::where('nombre','like','%'.$residuo[0].'%')->where('apellidoPaterno','like','%'.$residuo[1].'%')->where('tipo', 2)->get();
+                        }
+                    
+                    }
+                }
+
+                return view('Admin.Buscar', ['index'=>$index, 'user'=>$user]);
+            break;
+            case 2:
+                $this->validate($request, [
+                    'busqueda' => 'required'
+                ]);
+                
+                $user = \App\User::where('boleta',$request->busqueda)->where('tipo', 2)->get();
+
+                if(count($user) == 0){
+                    session()->flash('message', 'No se encontró ningun registro con la boleta: '.$request->busqueda);
+                    session()->flash('type', 'danger');
+                }
+
+                return view('Admin.Buscar', ['index'=>$index, 'user'=>$user]);
+            break;
+        }
+        
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -56,7 +56,7 @@
             {!!Form::close()!!}
         </div>
     </div>
-</div><!--.page-center-->
+</div>
 @stop
 
 @section('scripts')

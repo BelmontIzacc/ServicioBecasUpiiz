@@ -48,9 +48,6 @@ $index == 4;
 @stop
 
 @section('scripts')
-	<!--<script src="{{asset('/Template/js/lib/bootstrap-select/bootstrap-select.min.js')}}"></script>
-    <script src="{{asset('/Template/js/lib/select2/select2.full.min.js')}}"></script>
--->
 	<script src="{{asset('/Templates/js/jquery-2.1.0.js')}}"></script>
 	<script src="{{asset('/Templates/js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('/Templates/js/common-script.js')}}"></script>
