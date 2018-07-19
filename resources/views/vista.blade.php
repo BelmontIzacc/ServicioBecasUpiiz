@@ -78,11 +78,12 @@
 				<br><br><br><br><br><br>
 				<table align="Center" width="1000">
 					<tr>
-						<td align="Center">
+						<!--<td align="Center">
 							<a class="btn-primary btn-lg bs" type="button" style="font-size: 15pt" href="{{asset('/descargarPDF')}}">Descargar</a>
-						</td>
+						</td>-->
 						<td align="Center">
-							<a class="btn-primary btn-lg bs" type="button" style="font-size: 15pt" href="{{asset('/')}}">Finalizar</a>
+							<!--<a class="btn-primary btn-lg bs" type="button" style="font-size: 17pt" href="{{asset('/')}}" onclick="descargarPDF();">Finalizar y Descargar</a>-->
+							<a class="btn-primary btn-lg bs" type="button" style="font-size: 17pt" href="{{asset('/')}}">Finalizar</a>
 						</td>
 					</tr>
 				</table>
@@ -100,4 +101,5 @@
 @stop
 
 @section('scripts')
+<!--<script src="{{asset('/Templates/js/custom/pdf.js')}}"></script>-->
 @stop

@@ -57,14 +57,11 @@ Route::post('/registro', 'Auth\AuthController@postRegister');
 
 Route::get('/registro2','registroController@index');
 Route::post('/registro2','registroController@store');
-//Route::get('/registro2','registro2Controller@index');
-//Route::post('/registro2','registroController@store2');
 //-------------------Direcciona a la parte de créditos-------------------------------//
-Route::get('/creditos','creditsController@index');
+Route::get('/creditos','creditosController@index');
 
 Route::get('/muestra','muestraController@index');
 Route::get('/editar','muestraController@editar');
 Route::post('/muestra','muestraController@update');
-Route::get('/descargarPDF','PDFController@getPDF');
-//Route::get('/muestraPDF','PDFController@getPDF');
+Route::get('/descarga','PDFController@getPDF');
 Route::get('/muestraPDF','PDFController@index');

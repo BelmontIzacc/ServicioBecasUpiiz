@@ -22,18 +22,19 @@
 <div class="row center">
     <!--\\\\\\\ header Start \\\\\\-->
     <!--\\\\\\\ brand end \\\\\\-->
-    <div class="header_top_bar"> 
+    <div> 
+        <br>
         <div class="row center">
             <div class="col-sm-3 col-md-3 col-xs-2">
                 <section>
                     <div>
-                        <img src="{{asset('/Templates/img/IPN.png')}}" width="50" height="50">
+                        <img src="{{asset('/Templates/img/IPN.png')}}" width="60" height="70">
                     </div>
                 </section>
             </div>
             <div class="col-sm-6 col-md-6 col-xs-8">
                 <section>
-                    <div><strong>{{config('globalInfo.nombreUpiiz')}}</strong></div>
+                    <div><strong>{{config('globalInfo.nombre')}}<br>{{config('globalInfo.nombreUpiiz4')}}<br>{{config('globalInfo.nombreUpiiz3')}}</strong></div>
                 </section>
                 <section>
                     <div><strong>{{config('globalInfo.nombreUpiiz2')}}</strong></div>
@@ -42,11 +43,12 @@
             <div class="col-sm-3 col-md-3 col-xs-2">
                 <section>
                     <div>
-                        <img src="{{asset('/Templates/img/6.png')}}" width="50" height="50">
+                        <img src="{{asset('/Templates/img/upiiz_avatar.png')}}" width="50" height="50">
                     </div>
                 </section>
             </div>
        </div>
+       <hr>
     </div>
   </div>
 

@@ -71,15 +71,31 @@
           {!!Form::text('semestre', null, ['class'=>'form-control', 'id'=>'semestre', 'placeholder'=>'Semestre en el que estas (Ej: 2 o 9)'])!!}
         </div>
       </div>
-
-      <div class="form-group">
-        <div class=" col-sm-10">
-          <div class="checkbox checkbox_margin">
-              <button class="btn btn-default pull-right" type="submit">Siguiente</button>
-          </div>
-        </div>
-      </div>
       
+      <div align="Center">
+      <table align="Center">
+        <tr align="Center">
+          <td align="Center">
+            <div class="form-group" align="Center">
+              <div class=" col-sm-10" align="Center">
+                <div class="checkbox checkbox_margin" align="Center">
+                    <a href="{{asset('/')}}" class="btn btn-default pull-right" type="button">Volver</a>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td align="Center">
+            <div class="form-group" align="Center">
+              <div class=" col-sm-10" align="Center">
+                <div class="checkbox checkbox_margin" align="Center">
+                    <button class="btn btn-default pull-right" type="submit">Siguiente</button>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      </div>
     </form>
  </div>
 </body>

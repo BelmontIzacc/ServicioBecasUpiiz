@@ -5,6 +5,16 @@
 @stop
 
 @section('css')
+<script type="text/javascript">
+  function foraneo(f){
+    ocul = document.getElementById("viajeMensual");
+    if ((f.value == "58") && (f.value == "17")) {
+        ocul.style = 'disabled';
+      }
+      else{
+      }
+  }
+</script>
 @stop
 
 @section('popUp')
@@ -200,7 +210,7 @@
             <table class="table table-bordered">
               <tr class="success">
                 <td align="Center">
-                  {!!Form::select('municipio',$municipio,$student->vivienda->municipality->id, ['class'=>'select2 form-control'])!!}
+                  {!!Form::select('municipio',$municipio,$student->vivienda->municipality->id, ['class'=>'select2 form-control','onchange'=>'foraneo(this)'])!!}
                 </td>
                 <td align="Center">
                   {!!Form::select('estado',$estado,$student->vivienda->state->id, ['class'=>'select2 form-control'])!!}
@@ -313,6 +323,13 @@
                   <label><strong>Medio de transporte</strong></label>
                 </td>
               </tr>
+            </table>
+          </div>
+        </div>
+        <br>
+        <div class="row" id="letra">
+          <div class="col-md-12">
+            <table class="table table-bordered">
               <tr class="success">
                 <td align="Center">
                 {!!Form::text('viajeMensual',$student->vivienda->viajeMensual, ['class'=>'form-control', 'id'=>'viajeMensual'])!!}
@@ -490,7 +507,7 @@
           <div class="col-md-12">
             <div class="col-md-12" align="Center">
               <input type="hidden" value="{{$student->id}}" id="studentId" name="studentId">
-              <button class="btn-primary btn-lg bs" type="submit" style="font-size: 14pt; width: 190px">Actualizar</button>
+              <button class="btn-success btn-lg bs" type="submit" style="font-size: 14pt; width: 190px">Actualizar</button>
             </div>
           </div>
         </div>

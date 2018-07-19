@@ -167,7 +167,7 @@ class AuthController extends Controller
      */
     public function getLogout(){
         Auth::logout();
-        session()->flash('message', 'Se ha cerrado sessión');
+        session()->flash('message', 'Se ha cerrado sesión');
         session()->flash('type', 'warning');
         return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
     }

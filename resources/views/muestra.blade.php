@@ -139,7 +139,7 @@
 						<table class="table table-bordered">
 							<tr class="success">
 								<td align="Center">
-									<label>{{$student->vivienda->municipality->nombre}}</label>
+									<label onshow="foraneo($student->vivienda->municipality->id)">{{$student->vivienda->municipality->nombre}}</label>
 								</td>
 								<td align="Center">
 									<label>{{$student->vivienda->state->nombre}}</label>
@@ -245,30 +245,22 @@
 									<label><strong>Medio de transporte</strong></label>
 								</td>
 							</tr>
-							<tr class="success">
+							<tr class="success" @if((($student->vivienda->municipality->id)==17) || (($student->vivienda->municipality->id)==58))
+										style = "display:none;"
+									@endif>
 								<td align="Center">
-									@if((($student->vivienda->municipality->id)==17) || (($student->vivienda->municipality->id)==58))
-										<label>Ninguno</label>
-									@else
-										<label>{{$student->vivienda->viajeMensual}}</label>
-									@endif
+									<label>{{$student->vivienda->viajeMensual}}</label>
 								</td>
 								<td align="Center">
-									@if((($student->vivienda->municipality->id)==17) || (($student->vivienda->municipality->id)==58))
-										<label>Ninguno</label>
-									@else
-										<label>{{$student->vivienda->transporte}}</label>
-									@endif
+									<label>{{$student->vivienda->transporte}}</label>
 								</td>
 								<td align="Center" colspan="2">
-									@if((($student->vivienda->municipality->id)==17) || (($student->vivienda->municipality->id)==58))
-										<label>Ninguno</label>
-									@else
-										<label>{{$student->vivienda->gastoMensual}}</label>
-									@endif
+									<label>{{$student->vivienda->gastoMensual}}</label>
 								</td>
 							</tr>
-							<tr>
+							<tr @if((($student->vivienda->municipality->id)==17) || (($student->vivienda->municipality->id)==58))
+										style = "display:none;"
+									@endif>
 								<td align="Center">
 									<label><strong>Veces Viaje Mensual como For&aacute;neo</strong></label>
 								</td>
@@ -389,10 +381,10 @@
 						<table align="Center" width="700">
 							<tr>
 								<td class="col-md-6" align="left">
-									<a class="btn-primary btn-lg bs" type="button" style="font-size: 15pt" href="{{asset('/editar')}}">Editar</a>
+									<a class="btn-danger btn-lg bs" type="button" style="font-size: 15pt" href="{{asset('/editar')}}">Editar</a>
 								</td>
 								<td class="col-md-6" align="right">
-									<a class="btn-primary btn-lg bs" type="button" style="font-size: 15pt" href="{{asset('/muestraPDF')}}">Confirmar</a>
+									<a class="btn-primary btn-lg bs" type="button" style="font-size: 15pt" href="{{asset('/muestraPDF')}}" onclick="descargarPDF();">Confirmar</a>
 								</td>
 							</tr>
 						</table>
@@ -414,4 +406,5 @@
 @stop
 
 @section('scripts')
+<script src="{{asset('/Templates/js/custom/pdf.js')}}"></script>
 @stop
