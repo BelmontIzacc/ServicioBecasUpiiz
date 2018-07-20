@@ -22,7 +22,8 @@ class userTableSeeder extends Seeder
             'semestre' => '6',
             'apellidoPaterno' => 'Belmont',
             'apellidoMaterno' => 'Belmont',
-            'email' => 'jisagiizacc@gmail.com',        
+            'email' => 'jisagiizacc@gmail.com',
+            'completado'=>1,    
             
         ]);
 
@@ -38,6 +39,7 @@ class userTableSeeder extends Seeder
                 'apellidoPaterno' => 'Belmont',
                 'apellidoMaterno' => 'Belmont',            
                 'carrera_id' =>'1',
+                'completado'=>1,
             ]);
 
             $limit = config('global.limite');
@@ -65,6 +67,7 @@ class userTableSeeder extends Seeder
                     'apellidoPaterno' => $lastName1,
                     'apellidoMaterno' => $lastName2,
                     'carrera_id' =>rand (1 , 5),
+                    'completado'=>1,
                 ]);
             }
         }

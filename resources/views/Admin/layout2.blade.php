@@ -86,7 +86,7 @@
 	                            <a class="dropdown-item" href="{{asset('/admin/search')}}"><span class="font-icon font-icon-eye"></span>Buscar</a>
 	                            <div class="dropdown-divider"></div>
 	                            <a class="dropdown-item" href="{{asset('/admin')}}"><span class="font-icon font-icon-list-square"></span>Inicio</a>
-	                            <a class="dropdown-item" href="{{asset('/logout')}}"><span class="font-icon glyphicon glyphicon-log-out"></span>Salir</a>
+	                            <a class="dropdown-item" href="{{asset('/logout')}}"><span class="font-icon glyphicon glyphicon-log-out"></span>Cerrar sesión</a>
 	                        </div>
 	                    </div>
 	                </div><!--.site-header-shown-->

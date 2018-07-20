@@ -45,6 +45,7 @@ class user extends Model implements AuthenticatableContract,
         'apellidoPaterno',
         'apellidoMaterno',
         'carrera_id',
+        'completado',
     ];
     //protected $guarded = ['tipo'];
 

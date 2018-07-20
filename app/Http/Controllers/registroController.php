@@ -180,57 +180,65 @@ class registroController extends Controller
             $enn="";
         }
 
-        record::create([
-            'usuario_id'=>Auth::user()->id,
-            'beca_id'=>$request->beca,
-            'actualBeca'=>$es2,
-            'promActual'=>$request->promActual,
-            'licenciatura'=>$licenciatura,
-            'historiaAC' =>$letra,
-            ]);
-        tenement::create([
-            'usuario_id'=>Auth::user()->id,
-            'municipio_id'=>$request->municipio,
-            'estado_id'=>$request->estado,
-            'habitantes'=>$request->habitantes,
-            'habitaciones'=>$request->habitaciones,
-            'tipoCasa_id'=>$request->tCasa,
-            'calle'=>$request->calle,
-            'colonia'=>$request->colonia,
-            'codigoPostal'=>$request->codigoPostal,
-            'numExterior'=>$request->numExterior,
-            'numInterior'=>$request->numInterior,
-            'transporte_id'=>$request->transporte,
-            'transporte'=>$ee2,
-            'viajeMensual'=>$vm,
-            'pagoMensual'=>$pm,
-            'gastoMensual'=>$gm,
-            'residencia'=>$rr,
-            'tiempo'=>$request->tiempo,
-            ]);
-        spending::create([
-            'usuario_id'=>Auth::user()->id,
-            'ingresoMensual'=>$request->ingresoMensual,
-            'gastoMensual'=>$request->gastoMensual,
-            'noIntegrantes'=>$request->noIntegrantes,
-            'apoyo'=>$request->apoyo,
-            'trabajo'=>$request->trabajo,
-            'dependencia'=>$de,
-            ]);
-        personal::create([
-            'usuario_id'=>Auth::user()->id,
-            'enfermedades'=>$enn,
-            'telCasa'=>$request->telCasa,
-            'telCelular'=>$request->telCelular,
-            'nomTutor'=>$request->nomTutor,
-            'telTutor'=>$request->telTutor,
+        if(Auth::user()->completado == '1'){
+            return redirect('/muestra');
+        } else{
+            Auth::user()->update([
+                'completado'=>1,
             ]);
 
-        $index = 4;
-        session()->flash('message', 'Usuario '.$vm. ' actualizado correctamente');
-        session()->flash('type', 'success');
-        
-        return redirect('/muestra');
+            record::create([
+                'usuario_id'=>Auth::user()->id,
+                'beca_id'=>$request->beca,
+                'actualBeca'=>$es2,
+                'promActual'=>$request->promActual,
+                'licenciatura'=>$licenciatura,
+                'historiaAC' =>$letra,
+                ]);
+            tenement::create([
+                'usuario_id'=>Auth::user()->id,
+                'municipio_id'=>$request->municipio,
+                'estado_id'=>$request->estado,
+                'habitantes'=>$request->habitantes,
+                'habitaciones'=>$request->habitaciones,
+                'tipoCasa_id'=>$request->tCasa,
+                'calle'=>$request->calle,
+                'colonia'=>$request->colonia,
+                'codigoPostal'=>$request->codigoPostal,
+                'numExterior'=>$request->numExterior,
+                'numInterior'=>$request->numInterior,
+                'transporte_id'=>$request->transporte,
+                'transporte'=>$ee2,
+                'viajeMensual'=>$vm,
+                'pagoMensual'=>$pm,
+                'gastoMensual'=>$gm,
+                'residencia'=>$rr,
+                'tiempo'=>$request->tiempo,
+                ]);
+            spending::create([
+                'usuario_id'=>Auth::user()->id,
+                'ingresoMensual'=>$request->ingresoMensual,
+                'gastoMensual'=>$request->gastoMensual,
+                'noIntegrantes'=>$request->noIntegrantes,
+                'apoyo'=>$request->apoyo,
+                'trabajo'=>$request->trabajo,
+                'dependencia'=>$de,
+                ]);
+            personal::create([
+                'usuario_id'=>Auth::user()->id,
+                'enfermedades'=>$enn,
+                'telCasa'=>$request->telCasa,
+                'telCelular'=>$request->telCelular,
+                'nomTutor'=>$request->nomTutor,
+                'telTutor'=>$request->telTutor,
+                ]);
+
+            $index = 4;
+            session()->flash('message', 'Usuario '.$vm. ' actualizado correctamente');
+            session()->flash('type', 'success');
+            
+            return redirect('/muestra');
+        }
     }
 
     /**

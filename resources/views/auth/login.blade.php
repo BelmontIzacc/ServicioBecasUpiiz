@@ -40,10 +40,6 @@
                 </div>
                 
                 <div class="form-group">
-                    <div class="checkbox float-left">
-                        <input type="checkbox" id="remember" name="remember"/>
-                        <label for="remember">Recordarme</label>
-                    </div>
                     <div class="float-right reset">
                         <a href="{{asset('/password/email')}}">¡Olvide mi Contraseña!</a>
                     </div>
