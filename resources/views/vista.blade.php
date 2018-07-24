@@ -9,7 +9,9 @@
 
 @section('popUp')
 <!--@include('alerts.sessionAlert')
-@include('alerts.formError')-->
+@include('alerts.formError')
+<META HTTP-EQUIV="refresh" CONTENT="2; url=/descarga">
+-->
 <div class="col-md-13"><br>
 	<div class="col-md-12">
 		<div class="block-web">
