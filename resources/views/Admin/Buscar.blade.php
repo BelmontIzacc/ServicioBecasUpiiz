@@ -52,13 +52,8 @@
 		            <div class="form-group input-group">
 		                <input type="text" class="form-control" aria-label="Text input with dropdown button" id="info" placeholder="Nombre y Apellido Paterno o Boleta">
 		                <div class="input-group-btn">
-		                    <button type="button" class="btn btn-default-outline dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		                        Buscar
-		                    </button>
-		                    <div class="dropdown-menu dropdown-menu-right">
-		                        <a class="dropdown-item" onclick="identification(1);">Nombre</a>
-		                        <a class="dropdown-item" onclick="identification(2);">Boleta</a>
-		                    </div>
+                            <button type="button" onclick="identification(1);" class="btn btn-inline btn-secondary">Nombre</button>
+                            <button type="button" onclick="identification(2);" class="btn btn-inline btn-secondary">Boleta</button>
 		                </div>
 		            </div>
 		        </div>
