@@ -180,6 +180,24 @@ class registroController extends Controller
             $enn="";
         }
 
+        $licen = $licenciatura;
+        $licen = ucwords($licen);
+
+        $call = $request->calle;
+        $call = ucwords($call);
+
+        $colon = $request->colonia;
+        $colon = ucwords($colon);
+
+        $nomTu = $request->nomTutor;
+        $nomTu = ucwords($nomTu);
+
+        $numIn = $request->numInterior;
+        $numIn = strtoupper($numIn);
+
+        $numExt = $request->numExterior;
+        $numExt = strtoupper($numExt);
+
         if(Auth::user()->completado == '1'){
             return redirect('/muestra');
         } else{
@@ -192,7 +210,7 @@ class registroController extends Controller
                 'beca_id'=>$request->beca,
                 'actualBeca'=>$es2,
                 'promActual'=>$request->promActual,
-                'licenciatura'=>$licenciatura,
+                'licenciatura'=>$licen,
                 'historiaAC' =>$letra,
                 ]);
             tenement::create([
@@ -202,11 +220,11 @@ class registroController extends Controller
                 'habitantes'=>$request->habitantes,
                 'habitaciones'=>$request->habitaciones,
                 'tipoCasa_id'=>$request->tCasa,
-                'calle'=>$request->calle,
-                'colonia'=>$request->colonia,
+                'calle'=>$call,
+                'colonia'=>$colon,
                 'codigoPostal'=>$request->codigoPostal,
-                'numExterior'=>$request->numExterior,
-                'numInterior'=>$request->numInterior,
+                'numExterior'=>$numExt,
+                'numInterior'=>$numIn,
                 'transporte_id'=>$request->transporte,
                 'transporte'=>$ee2,
                 'viajeMensual'=>$vm,
@@ -229,7 +247,7 @@ class registroController extends Controller
                 'enfermedades'=>$enn,
                 'telCasa'=>$request->telCasa,
                 'telCelular'=>$request->telCelular,
-                'nomTutor'=>$request->nomTutor,
+                'nomTutor'=>$nomTu,
                 'telTutor'=>$request->telTutor,
                 ]);
 

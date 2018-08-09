@@ -50,7 +50,7 @@ class AuthController extends Controller
                 'apellidoPaterno'=>'required|min:1|max:50',
                 'apellidoMaterno'=>'required|min:1|max:50',
                 'edad'=>'required|integer|between:0,100',
-                'boleta'=>'required|between:2010000000,2500000000|integer|unique:usuario',
+                'boleta'=>'required|min:10|unique:usuario',
                 'carrera'=>'required',
                 'grupo'=>'required|max:4',
                 'semestre'=>'required|integer',
@@ -66,14 +66,30 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+
+        $nom = $data['nombre'];
+        $nom = ucwords($nom);
+
+        $apP = $data['apellidoPaterno'];
+        $apP = ucwords($apP);
+
+        $apM = $data['apellidoMaterno'];
+        $apM = ucwords($apM);
+
+        $bol = $data['boleta'];
+        $bol = strtoupper($bol);
+
+        $grup = $data['grupo'];
+        $grup = strtoupper($grup);
+
         return user::create([
-            'nombre' => $data['nombre'],
-            'apellidoPaterno'=>$data['apellidoPaterno'],
-            'apellidoMaterno'=>$data['apellidoMaterno'],
+            'nombre' => $nom,
+            'apellidoPaterno'=>$apP,
+            'apellidoMaterno'=>$apM,
             'edad'=>$data['edad'],
-            'boleta'=>$data['boleta'],
+            'boleta'=>$bol,
             'carrera_id'=>$data['carrera'],
-            'grupo'=>$data['grupo'],
+            'grupo'=>$grup,
             'semestre'=>$data['semestre'],
         ]);
     }

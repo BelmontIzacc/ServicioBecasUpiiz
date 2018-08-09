@@ -58,6 +58,26 @@
 @stop
 
 @section('popUp')
+<style type="text/css">
+  #licenciatura{
+    text-transform: capitalize;
+  }
+  #calle{
+    text-transform: capitalize;
+  }
+  #colonia{
+    text-transform: capitalize;
+  }
+  #nomTutor{
+    text-transform: capitalize;
+  }
+  #numInterior{
+    text-transform: uppercase;
+  }
+  #numExterior{
+    text-transform: uppercase;
+  }
+</style>
 <br>
   <div class="container-fluid">
 {!!Form::open(array('url'=>'/registro2', 'method'=>'post'))!!}
@@ -142,7 +162,7 @@
                         <div id="licF" class="col-sm-12" style="display:none;">
                           <label class="col-sm-12">¿Cuál?</label>
                           <div class="col-sm-12">
-                            {!!Form::text('licenciatura', null, ['class'=>'col-sm-3', 'id'=>'licenciatura'])!!}
+                            {!!Form::text('licenciatura', null, ['class'=>'col-sm-3', 'id'=>'licenciatura','style'=>'text-transform: capitalize;'])!!}
                           </div>
                         </div>
                         <!--Bloque Oculto-->

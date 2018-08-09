@@ -56,7 +56,7 @@ class muestraController extends Controller
                 'apellidoPaterno'=>'required|min:1|max:50|alpha',
                 'apellidoMaterno'=>'required|min:1|max:50|alpha',
                 'edad'=>'required|integer|between:0,100',
-                'boleta'=>'required|between:2010000000,2500000000|integer',
+                'boleta'=>'required|min:10',
                 'carrera'=>'required',
                 'grupo'=>'required|max:4',
                 'semestre'=>'required|integer',
@@ -184,6 +184,24 @@ class muestraController extends Controller
             $enn="";
         }
 
+        $licen = $licenciatura;
+        $licen = ucwords($licen);
+
+        $call = $request->calle;
+        $call = ucwords($call);
+
+        $colon = $request->colonia;
+        $colon = ucwords($colon);
+
+        $nomTu = $request->nomTutor;
+        $nomTu = ucwords($nomTu);
+
+        $numIn = $request->numInterior;
+        $numIn = strtoupper($numIn);
+
+        $numExt = $request->numExterior;
+        $numExt = strtoupper($numExt);
+
         $user = user::find($request->studentId);
         $user->update([
                 'nombre'=>$request->nombre,
@@ -201,7 +219,7 @@ class muestraController extends Controller
             'promActual'=>$request->promActual,
             'beca_id'=>$request->beca,
             'actualBeca'=>$es2,
-            'licenciatura'=>$licenciatura,
+            'licenciatura'=>$licen,
             'historiaAC' =>$letra,
             ]);
 
@@ -214,11 +232,11 @@ class muestraController extends Controller
             'tipoCasa_id'=>$request->tCasa,
             'residencia'=>$rr,
             'pagoMensual'=>$pm,
-            'calle'=>$request->calle,
-            'colonia'=>$request->colonia,
+            'calle'=>$call,
+            'colonia'=>$colon,
             'codigoPostal'=>$request->codigoPostal,
-            'numExterior'=>$request->numExterior,
-            'numInterior'=>$request->numInterior,
+            'numExterior'=>$numExt,
+            'numInterior'=>$numIn,
             'tiempo'=>$request->tiempo,
             'transporte_id'=>$request->transporte,
             'transporte'=>$ee2,
@@ -239,7 +257,7 @@ class muestraController extends Controller
         $personal->update([
             'telCasa'=>$request->telCasa,
             'telCelular'=>$request->telCelular,
-            'nomTutor'=>$request->nomTutor,
+            'nomTutor'=>$nomTu,
             'telTutor'=>$request->telTutor,
             'enfermedades'=>$enn,
             ]);

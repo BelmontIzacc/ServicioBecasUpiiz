@@ -11,7 +11,7 @@
 	background-repeat: no-repeat;
   }
 </style>
-<body background="https://i.imgur.com/skuzQSZ.jpg" id="letra" style="background-repeat: no-repeat; background-position: center center;"> 
+<body background="" id="letra" style="background-repeat: no-repeat; background-position: center center;"> 
 	<div class="col-md-12" align="Center">
 		<br>
 		<table align="Center">

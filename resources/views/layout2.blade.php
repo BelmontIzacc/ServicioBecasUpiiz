@@ -34,7 +34,7 @@
             </div>
             <div class="col-sm-6 col-md-6 col-xs-8">
                 <section>
-                    <div><strong>{{config('globalInfo.nombre')}}<br>{{config('globalInfo.nombreUpiiz4')}}<br>{{config('globalInfo.nombreUpiiz3')}}</strong></div>
+                    <div><strong>Instituto Politécnico Nacional<br>Unidad Profesional Interdisciplinaria de Ingeniería<br>Campus Zacatecas</strong></div>
                 </section>
                 <section>
                     <div><strong>{{config('globalInfo.nombreUpiiz2')}}</strong></div>

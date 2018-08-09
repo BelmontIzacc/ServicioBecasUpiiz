@@ -6,6 +6,23 @@
 
 
 @section('popUp')
+<style type="text/css">
+  #nombre{
+    text-transform: capitalize;
+  }
+  #apellidoPaterno{
+    text-transform: capitalize;
+  }
+  #apellidoMaterno{
+    text-transform: capitalize;
+  }
+  #grupo{
+    text-transform: uppercase;
+  }
+  #boleta{
+    text-transform: uppercase;
+  }
+</style>
 <body class="light_theme  fixed_header left_nav_fixed">
     <div class="registration">
     <div class="panel-heading border login_heading">Regístrate</div>
@@ -50,7 +67,7 @@
 
       <div class="form-group">
       <div class="col-sm-10">
-          {!!Form::text('boleta', null, ['class'=>'form-control', 'id'=>'boleta', 'placeholder'=>'Boleta'])!!}
+          {!!Form::text('boleta', null, ['class'=>'form-control', 'id'=>'boleta', 'placeholder'=>'Boleta o Boleta Provisional'])!!}
         </div>
       </div>
 

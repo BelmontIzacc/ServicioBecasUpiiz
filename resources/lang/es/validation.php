@@ -108,6 +108,7 @@ return [
             'between' => 'La :attribute no es válida.',
             'unique' => 'La :attribute ya existe.',
             'integer' => 'La :attribute solo debe tener números.',
+            'min' => 'Hacen falta dígitos en la :attribute',
         ],
         'grupo' => [
             'max' => 'El campo :attribute debe contener como máximo 4 carácteres.',
